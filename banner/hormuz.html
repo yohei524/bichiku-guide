@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>バナー・ホルムズ訴求</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.banner {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(135deg, #F8F4EC 0%, #F1EADC 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.banner::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(216, 90, 60, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(45, 95, 63, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+.inner {
+    position: relative;
+    z-index: 2;
+    padding: 90px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #D85A3C;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+    box-shadow: 0 4px 16px rgba(216, 90, 60, 0.4);
+}
+.tag::before { content: '🚨'; font-size: 24px; }
+.headline {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 98px;
+    line-height: 1.25;
+    color: #2A2420;
+    margin-top: 40px;
+    letter-spacing: -0.01em;
+}
+.headline .accent {
+    color: #D85A3C;
+}
+.headline .small {
+    font-size: 62px;
+    display: block;
+    margin-top: 8px;
+    color: #6B5D52;
+    font-weight: 700;
+}
+.fact-box {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border-left: 6px solid #2D5F3F;
+    padding: 28px 32px;
+    border-radius: 12px;
+    margin-top: 48px;
+}
+.fact-label {
+    font-size: 18px;
+    color: #2D5F3F;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+}
+.fact-body {
+    font-size: 32px;
+    color: #2A2420;
+    line-height: 1.55;
+    font-weight: 500;
+}
+.fact-body strong {
+    color: #D85A3C;
+    font-weight: 900;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.brand-mark {
+    font-size: 56px;
+    color: #2D5F3F;
+}
+.brand-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #2A2420;
+    line-height: 1.2;
+}
+.brand-name .green { color: #2D5F3F; }
+.brand-sub {
+    font-size: 18px;
+    color: #9A8F85;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+.cta {
+    background: #2D5F3F;
+    color: #fff;
+    padding: 22px 36px;
+    border-radius: 14px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 20px rgba(45, 95, 63, 0.4);
+}
+.cta::after { content: ' →'; }
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="inner">
+        <span class="tag">ホルムズ封鎖 46日目</span>
+
+        <h1 class="headline">
+            スーパーの棚<br>
+            <span class="accent">1日で</span>空になる<br>
+            <span class="small">阪神・東日本で 実際に起きた</span>
+        </h1>
+
+        <div class="fact-box">
+            <div class="fact-label">KNOW TO PREPARE</div>
+            <div class="fact-body">
+                日本の石油 <strong>95%</strong> は中東から。<br>
+                いま タンカーは1ヶ月半止まってる。
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="brand">
+                <span class="brand-mark">❖</span>
+                <div>
+                    <div class="brand-name">ほっそいおっさんの<span class="green">ゆっるい備蓄</span></div>
+                    <div class="brand-sub">bichiku-guide.vercel.app</div>
+                </div>
+            </div>
+            <div class="cta">プロフのリンク</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>バナー・トイレ訴求</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.banner {
+    width: 1080px;
+    height: 1080px;
+    background: linear-gradient(135deg, #FFFDF7 0%, #F8F4EC 50%, #EBDCB8 100%);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.emoji-bg {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    font-size: 280px;
+    opacity: 0.08;
+    line-height: 1;
+}
+.inner {
+    position: relative;
+    z-index: 2;
+    padding: 90px 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #2D5F3F;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+    box-shadow: 0 4px 16px rgba(45, 95, 63, 0.4);
+}
+.tag::before { content: '🚽'; font-size: 26px; }
+.headline {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 108px;
+    line-height: 1.2;
+    color: #2A2420;
+    margin-top: 40px;
+    letter-spacing: -0.02em;
+}
+.headline .accent {
+    color: #D85A3C;
+}
+.sub {
+    font-size: 40px;
+    color: #6B5D52;
+    margin-top: 32px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+.sub strong {
+    color: #2A2420;
+    font-weight: 900;
+}
+.check-list {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 2px solid #2D5F3F;
+    padding: 32px 36px;
+    border-radius: 16px;
+    margin-top: 40px;
+}
+.check-list-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #2D5F3F;
+    margin-bottom: 18px;
+}
+.check-item {
+    font-size: 26px;
+    color: #2A2420;
+    line-height: 1.7;
+    padding: 4px 0;
+    font-weight: 500;
+}
+.check-item::before {
+    content: '✓ ';
+    color: #2D5F3F;
+    font-weight: 900;
+    margin-right: 8px;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.brand-mark {
+    font-size: 56px;
+    color: #2D5F3F;
+}
+.brand-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #2A2420;
+    line-height: 1.2;
+}
+.brand-name .green { color: #2D5F3F; }
+.brand-sub {
+    font-size: 18px;
+    color: #9A8F85;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+.cta {
+    background: #D85A3C;
+    color: #fff;
+    padding: 22px 36px;
+    border-radius: 14px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 20px rgba(216, 90, 60, 0.4);
+}
+.cta::after { content: ' →'; }
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="emoji-bg">🚽</div>
+    <div class="inner">
+        <span class="tag">一番忘れられる 一番必須</span>
+
+        <h1 class="headline">
+            トイレ備蓄<br>
+            ゼロは<br>
+            <span class="accent">3時間で詰む</span>
+        </h1>
+
+        <p class="sub">
+            断水したら水洗が流れない。<br>
+            <strong>マンション高層階は 下階に逆流リスク</strong>
+        </p>
+
+        <div class="check-list">
+            <div class="check-list-title">最低ラインはこれ</div>
+            <div class="check-item">簡易トイレ 1人×7日で50回分</div>
+            <div class="check-item">消臭袋（BOS）LL サイズ</div>
+            <div class="check-item">戸建てならスコップ1本で庭に穴</div>
+        </div>
+
+        <div class="footer">
+            <div class="brand">
+                <span class="brand-mark">❖</span>
+                <div>
+                    <div class="brand-name">ほっそいおっさんの<span class="green">ゆっるい備蓄</span></div>
+                    <div class="brand-sub">bichiku-guide.vercel.app</div>
+                </div>
+            </div>
+            <div class="cta">プロフのリンク</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

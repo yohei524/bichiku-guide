@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>バナー・診断訴求</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.banner {
+    width: 1080px;
+    height: 1080px;
+    background: #F8F4EC;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+.top-wash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 540px;
+    background: linear-gradient(135deg, #2D5F3F 0%, #4A7A5C 50%, #2D5F3F 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.top-wash::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 80% 30%, rgba(201, 169, 97, 0.2) 0%, transparent 60%);
+}
+.inner {
+    position: relative;
+    z-index: 2;
+    padding: 80px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.top-section {
+    color: #fff;
+}
+.question-mark {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 220px;
+    font-weight: 900;
+    line-height: 1;
+    color: #C9A961;
+    text-shadow: 4px 6px 0 rgba(0,0,0,0.2);
+    display: block;
+    margin-bottom: -30px;
+}
+.headline {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 88px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+.headline .accent {
+    color: #F5E6B8;
+}
+.headline .small {
+    font-size: 48px;
+    display: block;
+    margin-top: 10px;
+    color: #D8E3DC;
+    font-weight: 700;
+}
+.middle {
+    background: #fff;
+    border: 3px solid #2D5F3F;
+    border-radius: 24px;
+    padding: 40px 44px;
+    margin-top: 40px;
+    box-shadow: 0 12px 32px rgba(45, 95, 63, 0.25);
+}
+.middle-label {
+    display: inline-block;
+    background: #C9A961;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+}
+.middle-main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 54px;
+    font-weight: 900;
+    color: #2A2420;
+    line-height: 1.35;
+}
+.middle-main .green { color: #2D5F3F; }
+.middle-sub {
+    font-size: 26px;
+    color: #6B5D52;
+    margin-top: 14px;
+    line-height: 1.5;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.brand-mark {
+    font-size: 56px;
+    color: #2D5F3F;
+}
+.brand-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: #2A2420;
+    line-height: 1.2;
+}
+.brand-name .green { color: #2D5F3F; }
+.brand-sub {
+    font-size: 18px;
+    color: #9A8F85;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+}
+.cta {
+    background: #C9A961;
+    color: #2A2420;
+    padding: 22px 36px;
+    border-radius: 14px;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.5);
+}
+.cta::after { content: ' →'; }
+</style>
+</head>
+<body>
+<div class="banner">
+    <div class="top-wash"></div>
+    <div class="inner">
+        <div class="top-section">
+            <span class="question-mark">?</span>
+            <h1 class="headline">
+                あなた 今<br>
+                何日 生き延びられる<br>
+                <span class="small">水 止まったら / 電気 止まったら</span>
+            </h1>
+        </div>
+
+        <div class="middle">
+            <span class="middle-label">1分診断</span>
+            <div class="middle-main">
+                5つの質問で<br>
+                <span class="green">足りないもん 全部</span>見える
+            </div>
+            <div class="middle-sub">
+                住まい・家族・現状・停電対策・資産<br>
+                答えたら おすすめがズラッと出る
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="brand">
+                <span class="brand-mark">❖</span>
+                <div>
+                    <div class="brand-name">ほっそいおっさんの<span class="green">ゆっるい備蓄</span></div>
+                    <div class="brand-sub">bichiku-guide.vercel.app</div>
+                </div>
+            </div>
+            <div class="cta">診断してみる</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
