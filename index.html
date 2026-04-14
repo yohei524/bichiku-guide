@@ -3,12 +3,373 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ゆるい備蓄｜とりあえずコレ買っとけ</title>
-<meta name="description" content="水・食・燃料・薬・現金。備蓄の定番をまとめて見れる。ゆるく始める備蓄のショッピングガイド。">
+<title>緊急備蓄リスト｜ホルムズ危機×エネルギーロックダウン対策 ｜ゆるい備蓄</title>
+<meta name="description" content="ホルムズ海峡が封鎖されたら日本のエネルギー輸入の8割が止まる。食料・電源・医薬品・護身・現物資産まで、今すぐ買うべき備蓄をまとめました。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<style>
+/* ── 備蓄ページ専用（明るいテーマに調整） ── */
+.bichiku-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 80px;
+}
+
+/* ── ヒーロー（明るい版） ── */
+.bichiku-hero {
+  background: linear-gradient(135deg, #F8F4EC 0%, #F1EADC 50%, #EBDCB8 100%);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px 28px 36px;
+  margin: 24px 0 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bichiku-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(201,169,97,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.bichiku-hero-tag {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--green);
+  display: block;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.bichiku-hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(24px, 6vw, 34px);
+  font-weight: 900;
+  line-height: 1.45;
+  color: var(--ink);
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.bichiku-hero h1 .accent { color: var(--green); }
+
+.bichiku-hero-desc {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+
+.bichiku-hero-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--red-pale);
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* ── セクション見出し ── */
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.cat-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.cat-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.cat-desc {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 2px;
+}
+
+/* ── 文脈ボックス ── */
+.context-box {
+  background: var(--green-pale);
+  border-left: 4px solid var(--green);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ink);
+}
+
+.context-box strong { color: var(--green); font-weight: 700; }
+
+/* ── アイテムカード ── */
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.item-card:hover {
+  border-color: var(--green);
+  box-shadow: 0 4px 16px rgba(45, 95, 63, 0.08);
+}
+
+.item-card-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  align-items: stretch;
+}
+
+.item-info {
+  padding: 16px 18px;
+}
+
+.item-name {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.item-reason {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+}
+
+.item-reason .why { color: var(--green); font-weight: 700; }
+
+.item-qty {
+  font-size: 12px;
+  color: var(--ink-muted);
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.item-qty::before {
+  content: '▶';
+  font-size: 9px;
+  color: var(--gold);
+}
+
+.item-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  background: #FFF4E0;
+  border-left: 1px solid #F5C47A;
+  min-width: 84px;
+  text-decoration: none;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.item-cta:hover { background: #FFEBC5; text-decoration: none; }
+
+.item-cta-inner { text-align: center; }
+
+.item-cta-logo {
+  font-size: 11px;
+  color: #E47911;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.item-cta-text {
+  font-size: 10px;
+  color: var(--ink-soft);
+  display: block;
+  line-height: 1.3;
+}
+
+/* ── 現物資産カード ── */
+.asset-card {
+  background: linear-gradient(135deg, #FAF3E0 0%, #F8F4EC 100%);
+  border: 1.5px solid var(--gold);
+  border-radius: 12px;
+  padding: 22px 20px;
+  margin-bottom: 14px;
+}
+
+.asset-card-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 10px;
+}
+
+.asset-card-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.asset-card-body strong { color: var(--green); }
+
+.asset-cta {
+  display: inline-block;
+  background: #FFF4E0;
+  border: 1px solid #E47911;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #E47911;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.asset-cta:hover {
+  background: #E47911;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── 優先度バッジ ── */
+.priority {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.priority-high {
+  background: var(--red-pale);
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.priority-med {
+  background: #FFF0D9;
+  color: #C47800;
+  border: 1px solid #E8B064;
+}
+
+/* ── まとめボックス ── */
+.summary-box {
+  background: linear-gradient(135deg, var(--green-pale) 0%, #E8F0EA 100%);
+  border: 1.5px solid var(--green);
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-top: 44px;
+}
+
+.summary-box h3 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.summary-box p {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+.summary-box p strong { color: var(--green); }
+
+/* ── 注意書き ── */
+.affiliate-note {
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-align: center;
+  margin-top: 32px;
+  line-height: 1.8;
+}
+
+/* ── 祈りボックス ── */
+.inori-box {
+  text-align: center;
+  margin-top: 16px;
+  padding: 16px 18px;
+  background: var(--bg-soft);
+  border-radius: 10px;
+  border: 1px solid var(--gold-pale);
+}
+
+.inori-box .mantra {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.inori-box .wish {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ── レスポンシブ ── */
+@media (max-width: 768px) {
+  .bichiku-wrap { padding: 0 14px 60px; }
+  .bichiku-hero { padding: 28px 20px 26px; margin: 16px 0 22px; }
+  .bichiku-hero h1 { font-size: 24px; }
+  .bichiku-hero-desc { font-size: 15.5px; line-height: 1.9; margin-bottom: 18px; }
+  .bichiku-hero-alert { font-size: 14px; padding: 12px 16px; }
+  .cat-header { margin: 32px 0 14px; }
+  .cat-icon { font-size: 26px; }
+  .cat-title { font-size: 1.2rem; }
+  .context-box { font-size: 15px; padding: 16px 18px; }
+  .item-card-inner { grid-template-columns: 1fr 80px; }
+  .item-name { font-size: 16px; }
+  .item-reason { font-size: 14px; }
+  .item-qty { font-size: 12px; }
+  .item-cta { min-width: 80px; padding: 0 12px; }
+  .asset-card { padding: 18px 16px; }
+  .asset-card-title { font-size: 16px; }
+  .asset-card-body { font-size: 13.5px; }
+  .summary-box { padding: 22px 18px; margin-top: 32px; }
+  .summary-box h3 { font-size: 17px; }
+  .summary-box p { font-size: 14px; }
+  .priority { font-size: 10px; }
+  .affiliate-note { font-size: 11px; }
+}
+</style>
 </head>
 <body>
 
@@ -25,223 +386,513 @@
     </div>
 </nav>
 
-<section class="hero" style="padding:56px 24px 40px;">
-    <span class="hero-lead">とりあえずコレ買っとけ</span>
-    <h1>備蓄は 知ってるだけじゃなく<br>買って置かな意味ない</h1>
-    <p class="hero-sub">水 食 燃料 薬 現金。定番の「これ買っとけ」をカテゴリ別にまとめた。迷ったら上から順にカゴに入れていけばOK。</p>
-</section>
+<div class="bichiku-wrap">
 
-<div class="container-wide">
+  <!-- ヒーロー -->
+  <div class="bichiku-hero">
+    <span class="bichiku-hero-tag">EMERGENCY PREPAREDNESS ── 2026</span>
+    <h1>ホルムズ危機が来る前に<br><span class="accent">今すぐ買っておくべきもの</span></h1>
+    <p class="bichiku-hero-desc">
+      中東情勢が流動化してます。ホルムズ海峡が閉鎖されたら、日本のエネルギー輸入の約8割が止まります。
+      電力・ガス・燃料。全部が連動して止まる可能性がある。
+      「備えた人」と「備えなかった人」の差は、その瞬間に初めてわかります。
+    </p>
+    <div class="bichiku-hero-alert">
+      ⚠️ 知らんかったら損する。今が最後の準備期間かもしれん。
+    </div>
+  </div>
 
-    <!-- 💧 水 -->
-    <section class="section" id="water" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">💧 水</h2>
-            <p style="text-align:left;">1人1日3L × 7日。ここから始める。迷うなら2Lペットボトル×12本を今すぐ。</p>
-        </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>サントリー 天然水 2L × 12本</h4>
-                <p class="why">定番の1本。賞味期限2年。6人家族なら2箱あればひとまず7日凌げる。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%B5%E3%83%B3%E3%83%88%E3%83%AA%E3%83%BC%E5%A4%A9%E7%84%B6%E6%B0%B4%202L%2012%E6%9C%AC&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>保存水 5年保存 2L × 6本</h4>
-                <p class="why">管理がとにかく楽。押入れに投げ込んで5年忘れてOK。ローリング苦手な人向け。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E4%BF%9D%E5%AD%98%E6%B0%B4+5%E5%B9%B4+2L&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>ウォータータンク 20L（折りたたみ）</h4>
-                <p class="why">給水車が来た時に水を運ぶやつ。これ無いと一回10Lしか運べん。地味に必須。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%82%A9%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%B3%E3%82%AF+20L+%E6%8A%98%E3%82%8A%E3%81%9F%E3%81%9F%E3%81%BF&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>携帯浄水器（BRITA・LifeStraw等）</h4>
-                <p class="why">長期化シナリオの保険。川水・雨水を飲める状態にする。家族1つは欲しい。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E6%90%BA%E5%B8%AF%E6%B5%84%E6%B0%B4%E5%99%A8+LifeStraw&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- 🍚 食 -->
-    <section class="section" id="food" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">🍚 食</h2>
-            <p style="text-align:left;">ローリングストックが王道。でも非常食も1〜2食あると安心。</p>
-        </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>尾西 アルファ米 12種セット</h4>
-                <p class="why">水を注ぐだけで食える。5年保存。非常食の定番中の定番。これは持っとけ。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E5%B0%BE%E8%A5%BF+%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E7%B1%B3+12%E7%A8%AE&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>サバ缶・ツナ缶 まとめ買い</h4>
-                <p class="why">タンパク質源。普段の料理でも使える＝ローリングしやすい。3年保存。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%B5%E3%83%90%E7%BC%B6+%E3%81%BE%E3%81%A8%E3%82%81%E8%B2%B7%E3%81%84&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>井村屋 えいようかん 5本入</h4>
-                <p class="why">5年保存の羊羹。甘いもんがあるだけで精神が保つ。子供にも安心。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E4%BA%95%E6%9D%91%E5%B1%8B+%E3%81%88%E3%81%84%E3%82%88%E3%81%86%E3%81%8B%E3%82%93&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>レトルトカレー・パスタソース 箱買い</h4>
-                <p class="why">ローリングの主力。カセットコンロ＋米（orパスタ）で温かい飯が食える。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%AC%E3%83%88%E3%83%AB%E3%83%88%E3%82%AB%E3%83%AC%E3%83%BC+%E7%AE%B1%E8%B2%B7%E3%81%84&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
-    </section>
+  <!-- ── 01 食料・飲料水 ── -->
+  <div class="cat-header">
+    <span class="cat-icon">🍚</span>
+    <div>
+      <div class="cat-title">食料・飲料水</div>
+      <div class="cat-desc">最低7日分。理想は30日分</div>
+    </div>
+  </div>
 
-    <!-- 🔥 燃料・電気 -->
-    <section class="section" id="energy" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">🔥 燃料・電気</h2>
-            <p style="text-align:left;">停電1週間を想定。ここケチると詰む。</p>
-        </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>イワタニ カセットコンロ＋ボンベ6本</h4>
-                <p class="why">調理・お湯・暖房の万能選手。ボンベ6本で1週間は持つ。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%A4%E3%83%AF%E3%82%BF%E3%83%8B+%E3%82%AB%E3%82%BB%E3%83%83%E3%83%88%E3%82%B3%E3%83%B3%E3%83%AD&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>Anker モバイルバッテリー 20,000mAh</h4>
-                <p class="why">スマホ4〜5回分フル充電できる。2個持ちが理想。充電忘れずに。</p>
-                <a href="https://www.amazon.co.jp/s?k=Anker+20000mAh&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>LEDランタン（充電式＋電池式）</h4>
-                <p class="why">ロウソクは火事リスクあり。LED一択。家族に1人1個。</p>
-                <a href="https://www.amazon.co.jp/s?k=LED%E3%83%A9%E3%83%B3%E3%82%BF%E3%83%B3+%E9%98%B2%E7%81%BD&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>ポータブル電源 1000Whクラス</h4>
-                <p class="why">余裕があるならコレ。冷蔵庫を数時間生かせる。医療機器使う家庭は必須。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%9D%E3%83%BC%E3%82%BF%E3%83%96%E3%83%AB%E9%9B%BB%E6%BA%90+1000Wh&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>ソーラーパネル（折りたたみ 100W）</h4>
-                <p class="why">長期停電の救世主。ポータブル電源とセットで最強。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%BD%E3%83%BC%E3%83%A9%E3%83%BC%E3%83%91%E3%83%8D%E3%83%AB+100W+%E6%8A%98%E3%82%8A%E3%81%9F%E3%81%9F%E3%81%BF&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>ヘッドライト（両手フリー）</h4>
-                <p class="why">停電時の作業でめちゃくちゃ効く。ランタンと別で必ず。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%83%98%E3%83%83%E3%83%89%E3%83%A9%E3%82%A4%E3%83%88+%E9%98%B2%E7%81%BD&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
-    </section>
+  <div class="context-box">
+    流通、止まります。<strong>スーパーの棚は3日どころか、1日で空になります。</strong>僕は南西諸島に住んでたことがあるんですけど、台風で船が止まるってなった瞬間、大手スーパーは1日、地元のスーパーでも2日で棚が空になりました。都市部はもっと脆い。阪神も東日本も、食料不足が一番深刻やったのは都会の方です。
+  </div>
 
-    <!-- 💊 薬・衛生 -->
-    <section class="section" id="medicine" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">💊 薬・衛生</h2>
-            <p style="text-align:left;">忘れがちだけど 無いと詰む。</p>
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">飲料水（2L×6本セット）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>人間は水なしで3日で死にます。食料より先に確保。1人1日2L×7日=14L。家族の人数で掛けてください。</div>
+          <div class="item-qty">目安：1人14L（7日分）。2L×6本×人数</div>
         </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>簡易トイレ（凝固剤式）50回分</h4>
-                <p class="why">水が止まったら3日で家が臭くなる。一番忘れられがちで一番必須。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E7%B0%A1%E6%98%93%E3%83%88%E3%82%A4%E3%83%AC+%E5%87%9D%E5%9B%BA%E5%89%A4&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>救急セット（コンパクト型）</h4>
-                <p class="why">絆創膏・消毒液・包帯・ハサミがまとまってるやつ。1個買っとけ。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E6%95%91%E6%80%A5%E3%82%BB%E3%83%83%E3%83%88+%E9%98%B2%E7%81%BD&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>N95マスク 20枚入</h4>
-                <p class="why">粉塵・火山灰・パンデミック対策。普通の不織布より防御力段違い。</p>
-                <a href="https://www.amazon.co.jp/s?k=N95%E3%83%9E%E3%82%B9%E3%82%AF&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>ウェットティッシュ（大容量）</h4>
-                <p class="why">水が使えない時の手洗い・体拭き。箱買い推奨。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%82%A6%E3%82%A7%E3%83%83%E3%83%88%E3%83%86%E3%82%A3%E3%83%83%E3%82%B7%E3%83%A5+%E5%A4%A7%E5%AE%B9%E9%87%8F&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
-    </section>
+        <a href="https://www.amazon.co.jp/s?k=飲料水+2L+24本+備蓄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-    <!-- 📻 情報・通信 -->
-    <section class="section" id="info" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">📻 情報・通信</h2>
-            <p style="text-align:left;">スマホ死んだら情報が一番の不安になる。</p>
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">アルファ米・尾西の白飯（5年保存）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>お湯か水を注ぐだけで食べられます。火も調理器具もいらん。保存5年なんで「置いとくだけ」でええんです。</div>
+          <div class="item-qty">目安：1人7食×7日分=49食。家族分購入。</div>
         </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>手回し・ソーラー充電ラジオ</h4>
-                <p class="why">電池切れ気にせず情報が取れる。スマホ充電もできるモデルが主流。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E6%89%8B%E5%9B%9E%E3%81%97+%E3%82%BD%E3%83%BC%E3%83%A9%E3%83%BC+%E3%83%A9%E3%82%B8%E3%82%AA+%E9%98%B2%E7%81%BD&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>防災笛（ホイッスル）</h4>
-                <p class="why">瓦礫に埋まった時に叫ぶより30倍届く。鍵につけとけ。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E9%98%B2%E7%81%BD%E7%AC%9B+%E3%83%9B%E3%82%A4%E3%83%83%E3%82%B9%E3%83%AB&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>防災リュック（15点セット）</h4>
-                <p class="why">迷うならコレ1個でスタートOK。あとから足せばいい。玄関に置いとけ。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E9%98%B2%E7%81%BD%E3%83%AA%E3%83%A5%E3%83%83%E3%82%AF+15%E7%82%B9&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
-    </section>
+        <a href="https://www.amazon.co.jp/s?k=アルファ米+尾西+白飯+まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-    <!-- 💴 現金・資産 -->
-    <section class="section" id="money" style="padding:32px 0;">
-        <div class="section-head" style="margin-bottom:24px; text-align:left;">
-            <h2 style="display:block; border-bottom:2px solid var(--gold); padding-bottom:8px;">💴 現金・資産の備蓄</h2>
-            <p style="text-align:left;">円だけ持ってても守れん時代。ここが他サイトと違うポイント。</p>
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">缶詰（魚・肉・野菜）セット<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>たんぱく質・脂質・ビタミンを長期保存できる唯一の手段。そのまま食べられるものを選んでください。</div>
+          <div class="item-qty">目安：30缶〜。サバ缶・ツナ缶・コーン缶のローテ。</div>
         </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <h4>家庭用金庫（耐火・防水）</h4>
-                <p class="why">現金5万円以上は家に。停電時はATMもカードも使えん。一万円札は崩せないから千円・五千円で。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E5%AE%B6%E5%BA%AD%E7%94%A8%E9%87%91%E5%BA%AB+%E8%80%90%E7%81%AB&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>純金 1g インゴット（田中貴金属等）</h4>
-                <p class="why">少額から始める現物ゴールド。インフレ・有事に強い。プチ備蓄の入口に。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E7%B4%94%E9%87%91+1g+%E3%82%A4%E3%83%B3%E3%82%B4%E3%83%83%E3%83%88&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-            <div class="product-card">
-                <h4>本『お金の大学』など金融本</h4>
-                <p class="why">備蓄は物だけやない 知識も備蓄。まず1冊読むだけで世界観変わる。</p>
-                <a href="https://www.amazon.co.jp/s?k=%E3%81%8A%E9%87%91%E3%81%AE%E5%A4%A7%E5%AD%A6&tag=" class="link" target="_blank" rel="noopener">Amazonで見る →</a>
-            </div>
-        </div>
+        <a href="https://www.amazon.co.jp/s?k=缶詰+詰め合わせ+防災+まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-        <div class="voice" style="margin-top:24px;">
-            <div class="voice-label">㐂のひとこと</div>
-            <p>物の備蓄だけで満足するな。円安で輸入品がもう高なっとるやろ？それはもう始まっとるインフレや。金融の備蓄も早めに動いとけ。知らんけど。</p>
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">インスタント食品（ラーメン・パスタ）<span class="priority priority-med">推奨</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>カロリー補給＋精神的安定。避難生活で「美味しいもんが食べられる」って、ほんまに心の支えになります。普段オーガニック派の人も、オーガニックのカップ麺もあります（ちょっと高いけど）。避難生活では割り切ることも大事です。</div>
+          <div class="item-qty">目安：30食〜。食べながら補充するローリングストック法がおすすめ。</div>
         </div>
-    </section>
+        <a href="https://www.amazon.co.jp/s?k=インスタントラーメン+まとめ買い+備蓄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
-    <!-- 迷った人向け -->
-    <section class="section">
-        <div class="section-head">
-            <h2>迷ったらまずコレ</h2>
-            <p>自分に何がいるか わからん人向け</p>
+  <div class="inori-box">
+    <div class="mantra">おん まかきゃらや そわか</div>
+    <div class="wish">大黒天 ── みなさんの食卓が途切れませんように</div>
+  </div>
+
+
+  <!-- ── 02 ポータブル電源 ── -->
+  <div class="cat-header">
+    <span class="cat-icon">🔋</span>
+    <div>
+      <div class="cat-title">ポータブル電源</div>
+      <div class="cat-desc">エネルギーロックダウン対策の核心</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    ホルムズ危機が現実になったら、<strong>計画停電どころか長期停電</strong>が起きえます。スマホが使えない＝情報が取れない＝これ、生命の危機です。ポータブル電源はもう「贅沢品」やなくて「インフラ」やと思ってください。
+  </div>
+
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">ポータブル電源 1000Wh以上（Jackery・EcoFlow等）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>スマホ充電約70回分。扇風機24時間・電気毛布12時間いけます。1000Wh以上なら医療機器も動かせる場合あり。</div>
+          <div class="item-qty">目安：1家族1台。ソーラーパネルとセットで買うのがベスト。</div>
         </div>
-        <div class="entry-grid">
-            <a href="/check.html" class="entry-card">
-                <span class="mark">✿</span>
-                <h3>1分診断</h3>
-                <p>5問に答えるだけ<br>足りないものが見える</p>
-            </a>
-            <a href="/situation.html" class="entry-card">
-                <span class="mark">◈</span>
-                <h3>状況で備える</h3>
-                <p>地震・停電・有事・インフレ<br>シーン別の考え方</p>
-            </a>
-            <a href="/blog.html" class="entry-card">
-                <span class="mark">❋</span>
-                <h3>読みもの</h3>
-                <p>時事と備蓄を短くつなぐ<br>ホルムズ封鎖の現実など</p>
-            </a>
+        <a href="https://www.amazon.co.jp/s?k=ポータブル電源+1000Wh+Jackery+EcoFlow&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">モバイルバッテリー 大容量（20,000mAh以上）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>ポータブル電源の補完用。避難時に持ち出しやすい。スマホ約5〜7回分充電できます。Anker・Cheeroあたりが安定してます。</div>
+          <div class="item-qty">目安：家族全員分（1人1台）</div>
         </div>
-    </section>
+        <a href="https://www.amazon.co.jp/s?k=モバイルバッテリー+20000mAh+Anker&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">カセットコンロ＋ガスボンベ（30本以上）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>都市ガス止まった時の調理・湯沸かし手段。ボンベ1本で約60分の調理ができます。安いんで多めに買っといてください。</div>
+          <div class="item-qty">目安：コンロ1台・ボンベ30本〜。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=カセットコンロ+ガスボンベ+まとめ買い+30本&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">おん あぼきゃ べいろしゃのう まかぼだら まに はんどま じんばら はらばりたや うん</div>
+    <div class="wish">大日如来 ── 光が絶えず、みなさんの暮らしを照らし続けますように</div>
+  </div>
+
+
+  <!-- ── 03 ソーラーパネル ── -->
+  <div class="cat-header">
+    <span class="cat-icon">☀️</span>
+    <div>
+      <div class="cat-title">ソーラーパネル</div>
+      <div class="cat-desc">長期停電に対応できる唯一の「自家発電」手段</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    ポータブル電源は使えばなくなります。でも<strong>太陽光は無限</strong>です。ソーラーパネルとポータブル電源のセットで、電力の自給自足ができる。1ヶ月の停電でも生き延びられる体制がこれで整います。
+  </div>
+
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">折りたたみソーラーパネル 100W〜200W<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>晴れの日に1000Whのポータブル電源を8〜10時間でフル充電できます。折りたたみタイプなら収納も楽。</div>
+          <div class="item-qty">目安：ポータブル電源と同メーカー（Jackery / EcoFlow）で揃えると接続が楽。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=ソーラーパネル+折りたたみ+100W+Jackery&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">ヒフミヨイ マワリテメクル ムナヤコト</div>
+    <div class="wish">カタカムナ ── 太陽のめぐりが止まりませんように</div>
+  </div>
+
+
+  <!-- ── 04 医薬品・衛生用品 ── -->
+  <div class="cat-header">
+    <span class="cat-icon">💊</span>
+    <div>
+      <div class="cat-title">医薬品・衛生用品</div>
+      <div class="cat-desc">ライフライン停止時に確保すべきカテゴリ</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    インフラ止まると<strong>病院もパンク</strong>します。市販薬・消毒薬・包帯の備蓄は「贅沢」やなくて「生存戦略」です。特に処方薬を飲んでる人は、かかりつけ医に相談して余裕を持った処方をもらっといてください。
+  </div>
+
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">解熱鎮痛剤(ロキソニン・バファリン)<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>発熱・頭痛・歯痛。何にでも使えます。ロキソニンは胃への負担があるんで2種類用意しとくのがおすすめ。</div>
+          <div class="item-qty">目安：2〜3箱（家族人数×1ヶ月分）</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=ロキソニンS+解熱鎮痛&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">消毒液（イソジン・ヒビテン）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>断水時の傷口処置。水が使えん状況で化膿を防ぐ唯一の手段になります。</div>
+          <div class="item-qty">目安：500ml×2本</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=イソジン+消毒液&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">絆創膏・包帯・ガーゼセット<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>停電時の暗闇での怪我は想定外に多いです。救急セット1箱あるだけで全然違います。</div>
+          <div class="item-qty">目安：救急セット1式＋ロールガーゼ2本</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=救急セット+包帯+ガーゼ+防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">アルコール除菌ジェル・ウェットティッシュ<span class="priority priority-med">推奨</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>断水時の手洗い代替。感染症が広がるフェーズで一番重要なアイテムです。</div>
+          <div class="item-qty">目安：ジェル500ml×3本・ウェット200枚×5パック</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=アルコール除菌ジェル+大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">おん ころころ せんだり まとうぎ そわか</div>
+    <div class="wish">薬師如来 ── みなさんの心身が健やかでありますように</div>
+  </div>
+
+
+  <!-- ── 05 護身・防犯グッズ ── -->
+  <div class="cat-header">
+    <span class="cat-icon">🛡️</span>
+    <div>
+      <div class="cat-title">護身・防犯グッズ</div>
+      <div class="cat-desc">都市型サバイバルで見落とされがちな「人的リスク」</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    言いにくい話やけど、事実やから言うときます。あなたに被害に遭ってほしくないから。<strong>過去の震災の避難所で、性被害が多発してます。</strong>内閣府の調査でも報告されてる事実です。電気が消えて、秩序が緩んだ空間で何が起きるか。特に女性・子供がいる家庭は、備蓄リストに「身を守る道具」も入れといてください。
+  </div>
+
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">特殊警棒（収縮式）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>護身用として法的に所持可能（正当な理由が必要）。収縮式なら持ち運びやすい。見せるだけで抑止力になります。</div>
+          <div class="item-qty">目安：1家族1本。玄関や寝室に。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=特殊警棒+護身用+収縮式&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">防犯ブザー（大音量130dB以上）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>避難所や停電時、声が届かない場面で助けを呼ぶ手段。子供には必ず持たせてください。</div>
+          <div class="item-qty">目安：家族全員分（1人1個）</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=防犯ブザー+大音量+130dB+防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">強力LEDライト（1000ルーメン以上）<span class="priority priority-med">推奨</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>暗闇は犯罪の温床。強力ライトで照らすだけで抑止力になります。護身用としても使える重量感のあるものを。</div>
+          <div class="item-qty">目安：1人1本。枕元に常備。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=LED懐中電灯+1000ルーメン+防災+護身&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">催涙スプレー（護身用）<span class="priority priority-med">推奨</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>距離を取りながら身を守れる護身具。女性の一人暮らし、お子さんがいる家庭は特に検討してほしいです。</div>
+          <div class="item-qty">目安：1〜2本。バッグ用と自宅用。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=催涙スプレー+護身用+防犯&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">のうまく さんまんだ ばざらだん かん</div>
+    <div class="wish">不動明王 ── あなたとあなたの大切な人を、悪から守りますように</div>
+  </div>
+
+
+  <!-- ── 06 紙製品・衛生消耗品 ── -->
+  <div class="cat-header">
+    <span class="cat-icon">🧻</span>
+    <div>
+      <div class="cat-title">紙製品・衛生消耗品</div>
+      <div class="cat-desc">軽視されがちやけど、なくなると生活崩壊する</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    コロナの時、トイレットペーパーが棚から消えた瞬間覚えてますか。あの時、<strong>最初になくなったのが衛生消耗品</strong>やったんです。紙類は軽くて場所取らん割に、なくなった時の衝撃がでかい。
+  </div>
+
+  <div class="item-list">
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">トイレットペーパー（96ロール以上）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>1人1日平均8m使用。断水時は特に重要。コンパクトタイプなら場所も取りません。</div>
+          <div class="item-qty">目安：4人家族で1ヶ月≒96ロール。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=トイレットペーパー+まとめ買い+96ロール&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">簡易トイレ（50回分以上）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>断水・排水管破損時に使います。マンション高層階は特に重要。凝固剤付きタイプが処理しやすいです。</div>
+          <div class="item-qty">目安：家族×7日×5回/日分。50回セット×人数。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=簡易トイレ+防災+50回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-card-inner">
+        <div class="item-info">
+          <div class="item-name">生理用品・おむつ（該当者）<span class="priority priority-high">最優先</span></div>
+          <div class="item-reason"><span class="why">なぜ：</span>流通止まると最も手に入りにくくなるカテゴリの一つです。3ヶ月分を目安に備蓄してください。</div>
+          <div class="item-qty">目安：3ヶ月分を一括購入。</div>
+        </div>
+        <a href="https://www.amazon.co.jp/s?k=生理用品+まとめ買い+備蓄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="item-cta">
+          <div class="item-cta-inner">
+            <span class="item-cta-logo">amazon</span>
+            <span class="item-cta-text">今すぐ<br>確認</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">はらいたまえ きよめたまえ</div>
+    <div class="wish">神道祝詞 ── 暮らしが清く保たれますように</div>
+  </div>
+
+
+  <!-- ── 07 現物資産 ── -->
+  <div class="cat-header">
+    <span class="cat-icon">🪙</span>
+    <div>
+      <div class="cat-title">現物資産</div>
+      <div class="cat-desc">円が機能しなくなった時のための「本物のお金」</div>
+    </div>
+  </div>
+
+  <div class="context-box">
+    ホルムズ危機が現実化した瞬間、<strong>円は急落します</strong>。輸入に頼りきってる日本にとって、エネルギーが遮断されたら貿易赤字が加速して、円の売り圧力がえげつないことになる。現金・預金の価値が溶けるリスクがある中で、金・銀は5000年間ずっと「価値のあるもの」であり続けてます。
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-card-title">🥇 金（ゴールド）コイン・地金</div>
+    <div class="asset-card-body">
+      田中貴金属・三菱マテリアルで買えます。<strong>純金コイン1g〜</strong>小額からいけます。ウィーン金貨・カンガルー金貨は流通性が高くて換金しやすい。<br>
+      ポイント：証券口座で買う「金ETF」やなくて、<strong>手元に持てる現物</strong>を優先してください。
+    </div>
+    <a href="https://www.amazon.co.jp/s?k=金貨+純金+コイン+投資&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="asset-cta">Amazonで金貨を確認する</a>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-card-title">🥈 銀（シルバー）コイン・地金</div>
+    <div class="asset-card-body">
+      金より手が届きやすい価格帯です。<strong>メープルリーフ銀貨・ウィーン銀貨</strong>は流通性が高い。有事の時の「小口決済手段」として使える可能性もあります。<br>
+      ポイント：金の1/80の価格帯。分散の観点で金と併せて持っとくのがおすすめ。
+    </div>
+    <a href="https://www.amazon.co.jp/s?k=銀貨+シルバーコイン+メープルリーフ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="asset-cta">Amazonで銀貨を確認する</a>
+  </div>
+
+  <div class="asset-card">
+    <div class="asset-card-title">💴 現金（小口紙幣・硬貨）</div>
+    <div class="asset-card-body">
+      停電したらカード使えません。ATMも止まります。<strong>千円札×30枚・硬貨各種</strong>を手元に置いといてください。金庫か防水袋に入れて自宅保管。銀行に預けたまま=緊急時に引き出せないリスクがあります。
+    </div>
+  </div>
+
+  <div class="inori-box">
+    <div class="mantra">おん まかきゃらや そわか</div>
+    <div class="wish">大黒天 ── みなさんの資産が守られますように</div>
+  </div>
+
+
+  <!-- まとめ -->
+  <div class="summary-box">
+    <h3>結論：今動く人が助かる</h3>
+    <p>
+      「そのうち買おう」は「買わない」と同じです。<strong>ホルムズ海峡の緊張が高まってから動いても遅い。</strong>
+      スーパーの棚が空になる前に、Amazonの在庫が尽きる前に。
+      備蓄は保険と同じ。使わなければ儲けもん。使う羽目になった時に「買っといてよかった」と思えます。
+      <br><br>
+      おん まかきゃらや そわか。みなさんの資産と命が守られますように。
+    </p>
+  </div>
+
+  <p class="affiliate-note">
+    ※ 本ページのAmazonリンクはアフィリエイトリンクです（dannasanba-22）。<br>
+    購入いただいても価格は変わりません。リンク先は参考として掲載しており、特定商品の品質・在庫を保証するものではありません。
+  </p>
 
 </div>
 
@@ -254,7 +905,6 @@
         <a href="/blog.html">読みもの</a>
     </p>
     <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
-    <p class="disclaimer">※ 本サイトは情報提供を目的としています。商品リンクはAmazonアソシエイト等のアフィリエイトを含みます。商品の在庫・価格は変動します。購入時はリンク先で最新情報をご確認ください。</p>
 </footer>
 
 </body>
