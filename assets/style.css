@@ -617,6 +617,103 @@ img { max-width: 100%; height: auto; }
     margin-right: auto;
 }
 
+/* ===== Amazon商品カード（わかりやすいリンク版） ===== */
+.amazon-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #fff;
+    border: 2px solid #E47911;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.2s;
+    position: relative;
+    box-shadow: 0 2px 6px rgba(228, 121, 17, 0.12);
+}
+
+.amazon-card:hover {
+    background: #FFF8ED;
+    border-color: #C66500;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(228, 121, 17, 0.25);
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.amazon-card:active {
+    transform: translateY(0);
+}
+
+.amazon-card-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+}
+
+.amazon-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.amazon-card-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 4px;
+}
+
+.amazon-card-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+}
+
+.amazon-card-cta {
+    flex-shrink: 0;
+    background: #FF9900;
+    color: #111;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 0 #C66500;
+}
+
+.amazon-card:hover .amazon-card-cta {
+    background: #FFB547;
+}
+
+@media (max-width: 500px) {
+    .amazon-card { padding: 12px 14px; gap: 10px; }
+    .amazon-card-icon { font-size: 1.6rem; width: 36px; }
+    .amazon-card-name { font-size: 14px; }
+    .amazon-card-sub { font-size: 11px; }
+    .amazon-card-cta { padding: 8px 12px; font-size: 12px; }
+}
+
+/* ===== Amazonカードリスト（縦並び） ===== */
+.amazon-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+/* ===== Amazonカードグリッド（2列） ===== */
+.amazon-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+}
+
 /* ===== レスポンシブ ===== */
 @media (max-width: 768px) {
     .nav-inner { padding: 12px 16px; flex-direction: column; align-items: flex-start; }

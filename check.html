@@ -201,7 +201,14 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
 
 <script>
 const TAG = 'dannasanba-22';
-const A = (kw, label) => `<a href="https://www.amazon.co.jp/s?k=${encodeURIComponent(kw)}&tag=${TAG}" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">${label}</a>`;
+const A = (kw, label) => `<a href="https://www.amazon.co.jp/s?k=${encodeURIComponent(kw)}&tag=${TAG}" target="_blank" rel="nofollow noopener" class="amazon-card">
+<span class="amazon-card-icon">🛒</span>
+<span class="amazon-card-body">
+  <span class="amazon-card-name">${label}</span>
+  <span class="amazon-card-sub">Amazonで価格・在庫を確認</span>
+</span>
+<span class="amazon-card-cta">見てみる →</span>
+</a>`;
 
 document.querySelectorAll('.quiz-option').forEach(opt => {
     opt.addEventListener('click', () => {
