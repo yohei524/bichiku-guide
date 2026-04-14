@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>診断｜ゆるい備蓄</title>
+<meta name="description" content="5問に答えるだけ。あなたに足りない備蓄がわかる。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html" class="active">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <div class="section-head">
+        <h2>1分で診断</h2>
+        <p>5問に答えるだけ あなたの今 足りないもんが見える</p>
+    </div>
+
+    <div class="quiz" id="quiz">
+
+        <div class="quiz-q" data-q="1">
+            <h3>Q1. あなたの住んでるのは？</h3>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="q1" value="city">都市部のマンション・アパート</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="suburb">郊外の戸建て</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="rural">田舎（井戸・畑がある）</label>
+            </div>
+        </div>
+
+        <div class="quiz-q" data-q="2">
+            <h3>Q2. 家族構成は？</h3>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="q2" value="solo">一人暮らし</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="couple">夫婦・パートナー</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="kids">子供がいる</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="senior">高齢の家族がいる</label>
+            </div>
+        </div>
+
+        <div class="quiz-q" data-q="3">
+            <h3>Q3. 今 家にある水・食料は何日分くらい？</h3>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="q3" value="0">ほぼない（1〜2日）</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="3">3日分くらい</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="7">1週間分くらい</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="14">2週間以上</label>
+            </div>
+        </div>
+
+        <div class="quiz-q" data-q="4">
+            <h3>Q4. 停電が1週間続いたら 何が一番困る？</h3>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="q4" value="light">明かり</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="cook">調理</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="phone">スマホの充電・情報</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="cold">冷暖房（夏冬）</label>
+            </div>
+        </div>
+
+        <div class="quiz-q" data-q="5">
+            <h3>Q5. 金融の備蓄はどう？</h3>
+            <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="q5" value="jpy">ほぼ円の預金だけ</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="some">少しは分散してる（ドル・金など）</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="spread">しっかり分散してる</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="none">そもそも貯金がほぼない</label>
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:32px;">
+            <button class="btn btn-primary" onclick="showResult()">結果を見る →</button>
+        </div>
+
+        <div class="quiz-result" id="result">
+            <h3>診断結果</h3>
+            <div id="result-body"></div>
+            <div style="margin-top:24px; text-align:center;">
+                <a href="/category.html" class="btn btn-outline">カテゴリごとの詳細 →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="voice" style="margin-top:48px;">
+        <div class="voice-label">㐂のひとこと</div>
+        <p>完璧を目指さんでええ。まず水と食 そっから広げていく。ゆるくやろう 3年続く仕組みが一番強い。</p>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+</footer>
+
+<script>
+document.querySelectorAll('.quiz-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+        const q = opt.closest('.quiz-q');
+        q.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+        opt.classList.add('selected');
+    });
+});
+
+function showResult() {
+    const answers = {};
+    for (let i = 1; i <= 5; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) { alert('全部答えてな！'); return; }
+        answers['q' + i] = selected.value;
+    }
+
+    const tips = [];
+
+    // Q1 住居
+    if (answers.q1 === 'city') tips.push('<strong>都市マンション</strong>：水の備蓄が最優先。エレベーター停止で上層階は水が運べなくなる。ペットボトル2L×14本を最低ライン');
+    else if (answers.q1 === 'suburb') tips.push('<strong>郊外戸建て</strong>：カセットコンロ＋ボンベが効く。ガレージや物置に燃料を分散保管できる強み');
+    else tips.push('<strong>田舎</strong>：水と食はある程度自給できるが 情報系（ラジオ・衛星電話）が弱点になりがち');
+
+    // Q2 家族
+    if (answers.q2 === 'kids') tips.push('<strong>子供の備え</strong>：ミルク・おむつ・離乳食・お気に入りのお菓子。精神的安定のためのおもちゃも忘れずに');
+    else if (answers.q2 === 'senior') tips.push('<strong>高齢の家族</strong>：常備薬は1ヶ月分 お薬手帳のコピー デイサービス停止時の対応');
+    else if (answers.q2 === 'couple') tips.push('<strong>夫婦</strong>：2人分の1週間備蓄。水42L 食料14食分が目安');
+    else tips.push('<strong>一人暮らし</strong>：ミニマル備蓄でOK 水21L 食料7食分から');
+
+    // Q3 現在量
+    if (answers.q3 === '0') tips.push('<strong>⚠ まず最優先</strong>：今日 水を2L×6本 買ってきて。話はそこから。');
+    else if (answers.q3 === '3') tips.push('<strong>ベース達成 あと一歩</strong>：3日→7日に増やすだけで安心感が段違いに上がる');
+    else if (answers.q3 === '7') tips.push('<strong>いい感じ</strong>：次は薬・燃料・情報系に横展開');
+    else tips.push('<strong>上級者</strong>：量より質のフェーズ。ローリング（賞味期限回し）ができてるか点検');
+
+    // Q4 停電
+    if (answers.q4 === 'light') tips.push('<strong>明かり対策</strong>：LEDランタン2つ 手回しラジオ ヘッドライト。ロウソクは火事リスクで推奨せず');
+    else if (answers.q4 === 'cook') tips.push('<strong>調理対策</strong>：カセットコンロ＋ボンベ6本で1週間炊ける');
+    else if (answers.q4 === 'phone') tips.push('<strong>通信対策</strong>：大容量モバイルバッテリー＋ソーラーパネル。最低20,000mAh×2');
+    else tips.push('<strong>冷暖房対策</strong>：夏は保冷剤・冷感タオル 冬は使い捨てカイロ・寝袋。電気に頼らん解');
+
+    // Q5 金融
+    if (answers.q5 === 'jpy') tips.push('<strong>⚠ 金融の備蓄がゼロ</strong>：円だけ持ってても購買力は10年で3割減。ゴールド・ドル建て資産で分散を');
+    else if (answers.q5 === 'some') tips.push('<strong>金融備蓄あり</strong>：あと一歩。全資産の10〜15%を非円資産に乗せるのが目安');
+    else if (answers.q5 === 'spread') tips.push('<strong>金融の備え◎</strong>：定期的な見直しだけ忘れずに');
+    else tips.push('<strong>まず生活防衛資金</strong>：生活費3ヶ月分の現金から。金融備蓄はそのあと');
+
+    tips.push('<strong>全員に共通</strong>：現金は小額紙幣（千円札・五千円札）で最低5万円を家に。停電時はATMもカードも使えない');
+
+    const body = '<ul>' + tips.map(t => '<li>' + t + '</li>').join('') + '</ul>';
+    document.getElementById('result-body').innerHTML = body;
+    document.getElementById('result').classList.add('show');
+    document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
