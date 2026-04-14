@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>薬・衛生の備蓄 完全ガイド｜ゆるい備蓄</title>
+<meta name="description" content="常備薬1ヶ月分・持病の処方薬・救急セット・衛生用品。忘れがちだけど命に関わる。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.guide-hero { padding: 48px 24px 32px; text-align:center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); border-bottom:1px solid var(--border); }
+.guide-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 12px; }
+.guide-hero .lead { color: var(--green); font-weight:700; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:14px; display:inline-block; padding:6px 16px; background: var(--green-pale); border-radius:999px; }
+.guide-hero p { color: var(--ink-soft); max-width: 580px; margin: 0 auto; }
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+.toc h3 { font-family: 'Noto Serif JP', serif; color: var(--green); font-size:1rem; margin-bottom:12px; }
+.toc ul { list-style:none; margin:0; }
+.toc li { padding: 4px 0; font-size:0.95rem; }
+.toc a { color: var(--ink); }
+.cat-amazon-btn { display: inline-block; background: #FFF4E0; border: 1px solid #E47911; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; color: #E47911; text-decoration: none; transition: all 0.2s; margin: 4px 6px 4px 0; }
+.cat-amazon-btn:hover { background: #E47911; color: #fff; text-decoration: none; }
+.cat-amazon-btn::before { content: '🛒 '; }
+.amazon-links { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-block { background: var(--bg-soft); border-left: 4px solid var(--gold); padding: 18px 22px; border-radius: 8px; margin: 20px 0 8px; }
+.buy-block h4 { font-family: 'Noto Serif JP', serif; color: var(--green); margin-bottom: 10px; font-size: 1rem; }
+.warn { background: var(--red-pale); border-left: 4px solid var(--red); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size:0.95rem; }
+.warn strong { color: var(--red); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", { link_url: this.href, link_text: this.textContent.trim().substring(0, 50) });
+        }
+      });
+    });
+  });
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="guide-hero">
+    <span class="lead">完全ガイド 05</span>
+    <h1>💊 薬・衛生の備蓄</h1>
+    <p>忘れがちだけど命に関わる。病院がパンクしてから動いたら遅い。</p>
+</section>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📖 このページの目次</h3>
+        <ul>
+            <li>1. <a href="#prescribed">持病の処方薬（最重要）</a></li>
+            <li>2. <a href="#otc">市販の常備薬</a></li>
+            <li>3. <a href="#firstaid">救急セット</a></li>
+            <li>4. <a href="#hygiene">衛生用品</a></li>
+            <li>5. <a href="#mask">マスク・感染対策</a></li>
+            <li>6. <a href="#women">女性用品</a></li>
+            <li>7. <a href="#final">まとめ</a></li>
+        </ul>
+    </div>
+
+    <article class="article" id="prescribed">
+        <h2>1. 持病の処方薬（最重要）</h2>
+        <p>これが切れたら命に関わる人、多いです。</p>
+
+        <ul>
+            <li><strong>糖尿病</strong> インスリン・血糖値計</li>
+            <li><strong>高血圧</strong> 降圧剤</li>
+            <li><strong>心疾患</strong> ニトロ・ワーファリン</li>
+            <li><strong>喘息</strong> 吸入器（スペアも）</li>
+            <li><strong>てんかん</strong> 発作を防ぐ薬</li>
+            <li><strong>精神科系</strong> 睡眠薬・抗うつ薬</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ かかりつけ医に相談して「災害時用の予備処方」を。</strong>多くの医師は状況を説明すれば1ヶ月分の予備を出してくれる。診察時に「備蓄用に少し多めに欲しい」と伝えるだけ。
+        </div>
+
+        <h3>管理のコツ</h3>
+        <ul>
+            <li><strong>お薬手帳のコピー</strong>を避難バッグに</li>
+            <li>薬の名前・用法を紙で書いて貼る（家族も分かる）</li>
+            <li>健康保険証のコピー</li>
+            <li>処方薬は直射日光・高温を避けて保管</li>
+        </ul>
+    </article>
+
+    <article class="article" id="otc">
+        <h2>2. 市販の常備薬</h2>
+
+        <h3>解熱鎮痛剤（2種類揃える）</h3>
+        <p>発熱・頭痛・歯痛・生理痛に万能。<strong>ロキソニンは胃にくる</strong>ので、胃が弱い人用にアセトアミノフェン系（カロナール・タイレノール）も別で。</p>
+
+        <h3>胃腸薬</h3>
+        <p>ストレス性の胃痛・下痢は災害時の定番。正露丸・ストッパ・太田胃散あたり。</p>
+
+        <h3>風邪薬</h3>
+        <p>総合感冒薬。パブロン・ルルあたり。子供がいる家は子供用も別。</p>
+
+        <h3>目薬・アレルギー薬</h3>
+        <p>瓦礫の粉塵で目が痛くなる。花粉症の人は抗アレルギー薬忘れずに。</p>
+
+        <div class="buy-block">
+            <h4>常備薬</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=ロキソニンS 解熱鎮痛&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ロキソニンS</a>
+                <a href="https://www.amazon.co.jp/s?k=タイレノール アセトアミノフェン&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">タイレノール</a>
+                <a href="https://www.amazon.co.jp/s?k=正露丸 大幸薬品&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">正露丸</a>
+                <a href="https://www.amazon.co.jp/s?k=太田胃散&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">太田胃散</a>
+                <a href="https://www.amazon.co.jp/s?k=パブロン 総合感冒薬&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">パブロン</a>
+                <a href="https://www.amazon.co.jp/s?k=目薬 ロート 防腐剤無添加&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">目薬</a>
+                <a href="https://www.amazon.co.jp/s?k=アレグラFX アレルギー 花粉&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">アレグラ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="firstaid">
+        <h2>3. 救急セット</h2>
+        <p>停電の暗闇で怪我する人が多い。地震の余震でガラス散乱も。</p>
+
+        <ul>
+            <li>絆創膏（大・中・小サイズ）</li>
+            <li>ガーゼ・包帯</li>
+            <li>消毒液（イソジン・ヒビテン）</li>
+            <li>ピンセット・ハサミ</li>
+            <li>三角巾（骨折の応急処置）</li>
+            <li>医療用テープ</li>
+            <li>湿布（腰痛・打撲）</li>
+            <li>使い捨て手袋（他人の怪我を処置する時）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>救急セット</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=救急セット 防災 ガーゼ 包帯&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">救急セット一式</a>
+                <a href="https://www.amazon.co.jp/s?k=イソジン うがい薬 消毒&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">イソジン</a>
+                <a href="https://www.amazon.co.jp/s?k=バンドエイド 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">絆創膏大量</a>
+                <a href="https://www.amazon.co.jp/s?k=三角巾 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">三角巾</a>
+                <a href="https://www.amazon.co.jp/s?k=湿布 サロンパス 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">湿布</a>
+                <a href="https://www.amazon.co.jp/s?k=使い捨て手袋 ニトリル 100枚&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">使い捨て手袋</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="hygiene">
+        <h2>4. 衛生用品</h2>
+
+        <h3>アルコール消毒</h3>
+        <p>断水時の手洗い代替。<strong>500ml×3本以上</strong>は欲しい。</p>
+
+        <h3>ウェットティッシュ</h3>
+        <p>体拭き・手拭き・食器拭き。アルコール入りと除菌なしの両方あると便利。</p>
+
+        <h3>口腔ケア</h3>
+        <p>水で歯磨きできない時用の<strong>歯磨きシート</strong>。虫歯・歯周病は災害後に悪化しやすい。</p>
+
+        <h3>体拭きシート</h3>
+        <p>お風呂入れない時の必需品。大判・厚手のボディシート。</p>
+
+        <div class="buy-block">
+            <h4>衛生用品</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=アルコール除菌ジェル 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">アルコールジェル</a>
+                <a href="https://www.amazon.co.jp/s?k=ウェットティッシュ 200枚 5パック&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ウェット200枚×5</a>
+                <a href="https://www.amazon.co.jp/s?k=歯磨きシート 歯みがき 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">歯磨きシート</a>
+                <a href="https://www.amazon.co.jp/s?k=ボディシート 大判 厚手 汗拭き&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ボディシート</a>
+                <a href="https://www.amazon.co.jp/s?k=ドライシャンプー 水なし&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ドライシャンプー</a>
+                <a href="https://www.amazon.co.jp/s?k=トイレットペーパー まとめ買い 96ロール&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">トイレットペーパー</a>
+                <a href="https://www.amazon.co.jp/s?k=ティッシュ 箱 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ティッシュ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="mask">
+        <h2>5. マスク・感染対策</h2>
+        <p>災害後は感染症リスクが急上昇。避難所では特に。</p>
+
+        <ul>
+            <li>N95マスク（粉塵・飛沫・ウイルス対応）</li>
+            <li>不織布マスク（日常用・箱買い）</li>
+            <li>ゴーグル（粉塵・感染対策）</li>
+            <li>使い捨てガウン（処置・看護時用）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>感染対策</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=N95マスク 20枚&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">N95マスク</a>
+                <a href="https://www.amazon.co.jp/s?k=不織布マスク 箱買い 50枚&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">不織布マスク</a>
+                <a href="https://www.amazon.co.jp/s?k=ゴーグル 防塵 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ゴーグル</a>
+                <a href="https://www.amazon.co.jp/s?k=体温計 非接触&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">非接触体温計</a>
+                <a href="https://www.amazon.co.jp/s?k=パルスオキシメーター&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">パルスオキシ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="women">
+        <h2>6. 女性用品</h2>
+        <p>災害時に最も手に入りにくくなるカテゴリのひとつ。<strong>普段より3ヶ月分多めに。</strong></p>
+
+        <ul>
+            <li>生理用品（ナプキン・タンポン・ショーツ）</li>
+            <li>サニタリー袋（使用済み処理用）</li>
+            <li>デリケートゾーンケア用品</li>
+            <li>サニタリーウェットシート</li>
+            <li>ブラ・下着（替え複数）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>女性用品</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=生理用品 まとめ買い 3ヶ月&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">生理用品3ヶ月</a>
+                <a href="https://www.amazon.co.jp/s?k=タンポン 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">タンポン</a>
+                <a href="https://www.amazon.co.jp/s?k=サニタリーショーツ 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">サニタリーショーツ</a>
+                <a href="https://www.amazon.co.jp/s?k=デリケートゾーン ウェット シート&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">デリケートウェット</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="final">
+        <h2>7. まとめ</h2>
+
+        <div class="voice">
+            <div class="voice-label">㐂のまとめ</div>
+            <p>持病ある人は「かかりつけ医に相談して予備処方もらう」が最優先。これ無いと薬の備蓄が始まらん。<br>持病なくても救急セット・常備薬・マスクは今週中に。停電の夜に怪我しても、薬局も病院も閉まっとる。そこで詰む。</p>
+        </div>
+
+        <div class="buy-block">
+            <h4>家族1組 これだけあればOK</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=救急セット 防災 ガーゼ 包帯&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①救急セット</a>
+                <a href="https://www.amazon.co.jp/s?k=ロキソニンS 解熱鎮痛&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②解熱鎮痛剤</a>
+                <a href="https://www.amazon.co.jp/s?k=正露丸 大幸薬品&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③正露丸</a>
+                <a href="https://www.amazon.co.jp/s?k=アルコール除菌ジェル 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">④アルコールジェル</a>
+                <a href="https://www.amazon.co.jp/s?k=N95マスク 20枚&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">⑤N95マスク</a>
+            </div>
+        </div>
+    </article>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/guide/energy.html" class="btn btn-outline">← 前：電気・燃料</a>
+        <a href="/category.html" class="btn btn-primary">カテゴリ一覧に戻る →</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
+</footer>
+
+</body>
+</html>

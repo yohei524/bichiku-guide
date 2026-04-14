@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電気・燃料の備蓄 完全ガイド｜ゆるい備蓄</title>
+<meta name="description" content="停電1週間を想定。ポータブル電源・ソーラー・カセットコンロの選び方と容量計算。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.guide-hero { padding: 48px 24px 32px; text-align:center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); border-bottom:1px solid var(--border); }
+.guide-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 12px; }
+.guide-hero .lead { color: var(--green); font-weight:700; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:14px; display:inline-block; padding:6px 16px; background: var(--green-pale); border-radius:999px; }
+.guide-hero p { color: var(--ink-soft); max-width: 580px; margin: 0 auto; }
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+.toc h3 { font-family: 'Noto Serif JP', serif; color: var(--green); font-size:1rem; margin-bottom:12px; }
+.toc ul { list-style:none; margin:0; }
+.toc li { padding: 4px 0; font-size:0.95rem; }
+.toc a { color: var(--ink); }
+.cat-amazon-btn { display: inline-block; background: #FFF4E0; border: 1px solid #E47911; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; color: #E47911; text-decoration: none; transition: all 0.2s; margin: 4px 6px 4px 0; }
+.cat-amazon-btn:hover { background: #E47911; color: #fff; text-decoration: none; }
+.cat-amazon-btn::before { content: '🛒 '; }
+.amazon-links { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-block { background: var(--bg-soft); border-left: 4px solid var(--gold); padding: 18px 22px; border-radius: 8px; margin: 20px 0 8px; }
+.buy-block h4 { font-family: 'Noto Serif JP', serif; color: var(--green); margin-bottom: 10px; font-size: 1rem; }
+.tip-table { width:100%; border-collapse: collapse; margin: 16px 0; background: var(--bg-card); border-radius:8px; overflow:hidden; }
+.tip-table th, .tip-table td { padding: 12px 14px; text-align:left; font-size:0.9rem; border-bottom:1px solid var(--border); }
+.tip-table th { background: var(--green-pale); color: var(--green); font-weight:700; }
+.warn { background: var(--red-pale); border-left: 4px solid var(--red); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size:0.95rem; }
+.warn strong { color: var(--red); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", { link_url: this.href, link_text: this.textContent.trim().substring(0, 50) });
+        }
+      });
+    });
+  });
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="guide-hero">
+    <span class="lead">完全ガイド 04</span>
+    <h1>🔥 電気・燃料の備蓄</h1>
+    <p>停電1週間を前提に。ポータブル電源＋ソーラーの組み合わせが最強。</p>
+</section>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📖 このページの目次</h3>
+        <ul>
+            <li>1. <a href="#priority">優先順位（明かり→通信→調理→冷暖房）</a></li>
+            <li>2. <a href="#light">明かり（LEDランタン・ヘッドライト）</a></li>
+            <li>3. <a href="#mobile">モバイルバッテリー選び方</a></li>
+            <li>4. <a href="#portable">ポータブル電源の容量計算</a></li>
+            <li>5. <a href="#solar">ソーラーパネル選び方</a></li>
+            <li>6. <a href="#gas">カセットコンロ＋ボンベ</a></li>
+            <li>7. <a href="#heat">冬の暖房・夏の冷房</a></li>
+            <li>8. <a href="#final">まとめ</a></li>
+        </ul>
+    </div>
+
+    <article class="article" id="priority">
+        <h2>1. 優先順位</h2>
+        <ol>
+            <li><strong>明かり</strong>（真っ暗は不安・危険）</li>
+            <li><strong>通信・情報</strong>（スマホ・ラジオ）</li>
+            <li><strong>調理</strong>（温かい物が精神を救う）</li>
+            <li><strong>冷暖房</strong>（命に直結は夏と冬だけ）</li>
+        </ol>
+
+        <p>予算は①②③④の順に割り振り。①②は安い（1万円で揃う）、③は安い（カセットコンロ3千円）、④は高い（ポータブル電源10万〜）。</p>
+    </article>
+
+    <article class="article" id="light">
+        <h2>2. 明かり</h2>
+
+        <h3>LEDランタン（家族分）</h3>
+        <p>部屋全体を照らす用。充電式＋電池式を分散して持つのが◎。</p>
+
+        <h3>ヘッドライト</h3>
+        <p>両手が使える。作業時・トイレ時に圧倒的に便利。1人1個が理想。</p>
+
+        <h3>強力LED懐中電灯</h3>
+        <p>外を照らす・遠くを見る用。1000ルーメン以上あると安心。</p>
+
+        <div class="warn">
+            <strong>⚠ ロウソクは絶対やめて。</strong>火事の元。地震後は余震で倒れる。LED一択。
+        </div>
+
+        <div class="buy-block">
+            <h4>明かり系</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=LEDランタン 防災 充電式&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">LEDランタン</a>
+                <a href="https://www.amazon.co.jp/s?k=ヘッドライト 防災 LED&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ヘッドライト</a>
+                <a href="https://www.amazon.co.jp/s?k=LED懐中電灯 1000ルーメン 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">強力LEDライト</a>
+                <a href="https://www.amazon.co.jp/s?k=乾電池 単3 20本 アルカリ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">乾電池まとめ買い</a>
+                <a href="https://www.amazon.co.jp/s?k=エネループ 充電器セット&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">エネループ充電池</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="mobile">
+        <h2>3. モバイルバッテリー</h2>
+        <p>スマホ充電の主力。<strong>1人20,000mAh×1個</strong>が最低ライン。スマホ約5〜7回フル充電可能。</p>
+
+        <ul>
+            <li>Anker・CIOが定番（信頼性・保証◎）</li>
+            <li>PD対応（急速充電）を選ぶと短時間で充電しきれる</li>
+            <li>月1回は残量チェック（放置で自然放電する）</li>
+            <li>安全性重視なら PSEマーク必須</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>モバイルバッテリー</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=Anker モバイルバッテリー 20000mAh&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Anker 20000mAh</a>
+                <a href="https://www.amazon.co.jp/s?k=Anker PowerCore 30000&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Anker 30000mAh</a>
+                <a href="https://www.amazon.co.jp/s?k=CIO モバイルバッテリー&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">CIO</a>
+                <a href="https://www.amazon.co.jp/s?k=USB-C ケーブル 2m 急速充電&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">USB-Cケーブル</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="portable">
+        <h2>4. ポータブル電源</h2>
+        <p>冷蔵庫・扇風機・電気毛布・医療機器まで動かせる中核装備。</p>
+
+        <table class="tip-table">
+            <tr><th>容量</th><th>目安</th><th>使用例</th></tr>
+            <tr><td>300Wh</td><td>入門</td><td>スマホ充電20回・ランタン40時間</td></tr>
+            <tr><td>700Wh</td><td>標準</td><td>扇風機12時間・電気毛布8時間</td></tr>
+            <tr><td>1000Wh</td><td>推奨</td><td>冷蔵庫4〜6時間・医療機器対応</td></tr>
+            <tr><td>2000Wh</td><td>上位</td><td>冷蔵庫12時間・電子レンジOK</td></tr>
+        </table>
+
+        <h3>選び方</h3>
+        <ul>
+            <li><strong>Jackery</strong> 日本市場で一番普及 / 保証5年</li>
+            <li><strong>EcoFlow</strong> 充電爆速（1時間でフル）</li>
+            <li><strong>Anker</strong> 安心のブランド / リン酸鉄リチウム採用で長寿命</li>
+            <li><strong>リン酸鉄（LiFePO4）</strong>バッテリー搭載機を選ぶ（10年持つ）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>ポータブル電源</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=Jackery ポータブル電源 1000&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Jackery 1000</a>
+                <a href="https://www.amazon.co.jp/s?k=EcoFlow DELTA 2&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">EcoFlow DELTA 2</a>
+                <a href="https://www.amazon.co.jp/s?k=Anker PowerHouse 767&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Anker 767</a>
+                <a href="https://www.amazon.co.jp/s?k=BLUETTI ポータブル電源&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BLUETTI</a>
+                <a href="https://www.amazon.co.jp/s?k=ポータブル電源 2000Wh リン酸鉄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">2000Wh クラス</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="solar">
+        <h2>5. ソーラーパネル</h2>
+        <p>ポータブル電源は使えばなくなる。<strong>ソーラーがあれば無限</strong>。セットで持つのが正解。</p>
+
+        <ul>
+            <li>100W 折りたたみ → 1000Whを8〜10時間で満充電</li>
+            <li>200W → 4〜5時間で満充電（天気次第）</li>
+            <li><strong>ポータブル電源と同メーカー</strong>で買うと接続端子の相性◎</li>
+            <li>ベランダ・庭・車のボンネットで使える</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>ソーラーパネル</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=Jackery ソーラーパネル 100W&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Jackery 100W</a>
+                <a href="https://www.amazon.co.jp/s?k=Jackery SolarSaga 200&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Jackery 200W</a>
+                <a href="https://www.amazon.co.jp/s?k=EcoFlow ソーラーパネル 220W&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">EcoFlow 220W</a>
+                <a href="https://www.amazon.co.jp/s?k=Anker ソーラーパネル 100W&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">Anker 100W</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="gas">
+        <h2>6. カセットコンロ＋ボンベ</h2>
+        <p>調理・お湯沸かし・湯たんぽ用のお湯まで全部これ。<strong>ボンベは多めに。</strong>家族4人で1週間なら30本以上。</p>
+
+        <h3>ボンベの目安</h3>
+        <ul>
+            <li>1本で約60分の調理</li>
+            <li>1食の調理に15〜20分</li>
+            <li>1日3食なら1本使う計算</li>
+            <li>7日 × 家族4人 → 28〜30本</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ ボンベは直射日光・40℃以上で爆発リスク。</strong>車の中の夏場保管は絶対NG。
+        </div>
+
+        <div class="buy-block">
+            <h4>カセットコンロ＋ボンベ</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=イワタニ カセットコンロ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">イワタニ カセットコンロ</a>
+                <a href="https://www.amazon.co.jp/s?k=カセットボンベ 30本 イワタニ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ボンベ30本</a>
+                <a href="https://www.amazon.co.jp/s?k=メスティン アルミ 飯盒&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">メスティン</a>
+                <a href="https://www.amazon.co.jp/s?k=ケトル やかん キャンプ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">キャンプ用ケトル</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="heat">
+        <h2>7. 冬の暖房・夏の冷房</h2>
+
+        <h3>冬</h3>
+        <ul>
+            <li>使い捨てカイロ（50個入りを箱買い）</li>
+            <li>湯たんぽ（カセットコンロでお湯沸かして）</li>
+            <li>寝袋（冬用・−5℃対応）</li>
+            <li>アルミブランケット（コンパクト・保温高）</li>
+            <li>石油ストーブ（電気不要で点火できる型を選ぶ）</li>
+        </ul>
+
+        <h3>夏</h3>
+        <ul>
+            <li>保冷剤（大量）＋クーラーボックス</li>
+            <li>扇風機（USB給電＋モバイルバッテリー）</li>
+            <li>冷感タオル・冷感スプレー</li>
+            <li>塩分タブレット（熱中症予防）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>冬</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=使い捨てカイロ 50個 箱買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">カイロ50個</a>
+                <a href="https://www.amazon.co.jp/s?k=湯たんぽ 大容量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">湯たんぽ</a>
+                <a href="https://www.amazon.co.jp/s?k=寝袋 冬用 -5度&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">冬用寝袋</a>
+                <a href="https://www.amazon.co.jp/s?k=アルミブランケット 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">アルミブランケット</a>
+                <a href="https://www.amazon.co.jp/s?k=石油ストーブ 電気不要&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">電気不要ストーブ</a>
+            </div>
+        </div>
+
+        <div class="buy-block">
+            <h4>夏</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=保冷剤 大型 クーラーボックス&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">保冷剤</a>
+                <a href="https://www.amazon.co.jp/s?k=USB扇風機 モバイルバッテリー&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">USB扇風機</a>
+                <a href="https://www.amazon.co.jp/s?k=冷感タオル 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">冷感タオル</a>
+                <a href="https://www.amazon.co.jp/s?k=塩分タブレット まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">塩分タブレット</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="final">
+        <h2>8. まとめ</h2>
+
+        <div class="voice">
+            <div class="voice-label">㐂のまとめ</div>
+            <p>予算10万あるならポータブル電源＋ソーラー。3万ならモバイルバッテリー×2＋カセットコンロ＋ボンベ30本＋LEDランタン2個。金額で出来ることが変わる。<br>でも「何も無い」が一番危険。まず3万コースから始めてもええ。</p>
+        </div>
+
+        <div class="buy-block">
+            <h4>入門3万円コース</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=Anker モバイルバッテリー 20000mAh&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①Anker 20000mAh</a>
+                <a href="https://www.amazon.co.jp/s?k=イワタニ カセットコンロ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②カセットコンロ</a>
+                <a href="https://www.amazon.co.jp/s?k=カセットボンベ 30本 イワタニ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③ボンベ30本</a>
+                <a href="https://www.amazon.co.jp/s?k=LEDランタン 防災 充電式&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">④LEDランタン</a>
+            </div>
+        </div>
+
+        <div class="buy-block">
+            <h4>本格10万円コース</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=Jackery ポータブル電源 1000&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①Jackery 1000</a>
+                <a href="https://www.amazon.co.jp/s?k=Jackery SolarSaga 200&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②Jackery 200W Solar</a>
+                <a href="https://www.amazon.co.jp/s?k=イワタニ カセットコンロ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③カセットコンロ＋ボンベ</a>
+            </div>
+        </div>
+    </article>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/guide/food.html" class="btn btn-outline">← 前：食の備蓄</a>
+        <a href="/guide/medicine.html" class="btn btn-primary">次：薬・衛生 →</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
+</footer>
+
+</body>
+</html>

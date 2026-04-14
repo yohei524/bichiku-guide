@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>トイレの備蓄 完全ガイド｜ゆるい備蓄</title>
+<meta name="description" content="断水3時間で詰む。マンション高層階は絶対必須。簡易トイレの選び方・必要回数・処理方法まで。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.guide-hero { padding: 48px 24px 32px; text-align:center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); border-bottom:1px solid var(--border); }
+.guide-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 12px; }
+.guide-hero .lead { color: var(--green); font-weight:700; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:14px; display:inline-block; padding:6px 16px; background: var(--green-pale); border-radius:999px; }
+.guide-hero p { color: var(--ink-soft); max-width: 580px; margin: 0 auto; }
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+.toc h3 { font-family: 'Noto Serif JP', serif; color: var(--green); font-size:1rem; margin-bottom:12px; }
+.toc ul { list-style:none; margin:0; }
+.toc li { padding: 4px 0; font-size:0.95rem; }
+.toc a { color: var(--ink); }
+.toc a:hover { color: var(--green); }
+.cat-amazon-btn { display: inline-block; background: #FFF4E0; border: 1px solid #E47911; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; color: #E47911; text-decoration: none; transition: all 0.2s; margin: 4px 6px 4px 0; }
+.cat-amazon-btn:hover { background: #E47911; color: #fff; text-decoration: none; }
+.cat-amazon-btn::before { content: '🛒 '; }
+.amazon-links { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-block { background: var(--bg-soft); border-left: 4px solid var(--gold); padding: 18px 22px; border-radius: 8px; margin: 20px 0 8px; }
+.buy-block h4 { font-family: 'Noto Serif JP', serif; color: var(--green); margin-bottom: 10px; font-size: 1rem; }
+.tip-table { width:100%; border-collapse: collapse; margin: 16px 0; background: var(--bg-card); border-radius:8px; overflow:hidden; }
+.tip-table th, .tip-table td { padding: 12px 14px; text-align:left; font-size:0.9rem; border-bottom:1px solid var(--border); }
+.tip-table th { background: var(--green-pale); color: var(--green); font-weight:700; }
+.warn { background: var(--red-pale); border-left: 4px solid var(--red); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size:0.95rem; }
+.warn strong { color: var(--red); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", { link_url: this.href, link_text: this.textContent.trim().substring(0, 50) });
+        }
+      });
+    });
+  });
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="guide-hero">
+    <span class="lead">完全ガイド 02</span>
+    <h1>🚽 トイレの備蓄</h1>
+    <p>水が止まった3時間後に詰む。一番忘れられるけど一番必須。</p>
+</section>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📖 このページの目次</h3>
+        <ul>
+            <li>1. <a href="#why">なぜトイレが最優先なのか</a></li>
+            <li>2. <a href="#count">何回分いるか（人数×日数）</a></li>
+            <li>3. <a href="#kind">簡易トイレの種類と選び方</a></li>
+            <li>4. <a href="#mansion">マンション・高層階の絶対条件</a></li>
+            <li>5. <a href="#house">戸建て・庭がある人向けの解</a></li>
+            <li>6. <a href="#process">処理の仕方（臭い対策）</a></li>
+            <li>7. <a href="#final">まとめ：最低これだけ</a></li>
+        </ul>
+    </div>
+
+    <article class="article" id="why">
+        <h2>1. なぜトイレが最優先なのか</h2>
+        <p>地震で水道止まる → 水洗トイレ流せない → <strong>3時間後から使えなくなる</strong>。そのまま使うと詰まる・溢れる。マンション高層階なら下の階まで被害いく。これで隣人関係終わる。</p>
+
+        <ul>
+            <li>成人1人が1日5〜7回トイレ行く</li>
+            <li>水が止まって24時間で我慢限界</li>
+            <li>女性・子供は特にストレス激しい</li>
+            <li>避難所のトイレは大行列＆衛生最悪</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ 在宅避難の成否はトイレで決まる。</strong>食料より水より、トイレがないと家に居られなくなる。結果、避難所行き → 感染症・ストレス・盗難リスク。
+        </div>
+    </article>
+
+    <article class="article" id="count">
+        <h2>2. 何回分いるか</h2>
+
+        <table class="tip-table">
+            <tr><th>家族構成</th><th>1日分</th><th>3日分</th><th>7日分</th><th>30日分（有事）</th></tr>
+            <tr><td>1人</td><td>7回</td><td>21回</td><td>50回</td><td>210回</td></tr>
+            <tr><td>夫婦</td><td>14回</td><td>42回</td><td>100回</td><td>420回</td></tr>
+            <tr><td>4人家族</td><td>28回</td><td>84回</td><td>200回</td><td>840回</td></tr>
+        </table>
+
+        <p><strong>まず50回セットを家族分。</strong>これが基本ライン。あとで補充していけばいい。</p>
+    </article>
+
+    <article class="article" id="kind">
+        <h2>3. 簡易トイレの種類</h2>
+
+        <h3>凝固剤タイプ（王道）</h3>
+        <p>便座に袋をかぶせて、用を足したら凝固剤をふりかけてゲル化→縛って捨てる。処理がラク。<strong>まずこれ。</strong></p>
+
+        <h3>吸水シートタイプ</h3>
+        <p>シートが水分を吸う。凝固剤より割高だが臭いが少ない傾向。</p>
+
+        <h3>ポータブル便座型</h3>
+        <p>便座自体が無い環境用（車中泊・アウトドア兼用）。普段使わないなら折りたたみ式で十分。</p>
+
+        <div class="buy-block">
+            <h4>簡易トイレの定番</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 防災 50回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">簡易トイレ 50回</a>
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 防災 100回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">簡易トイレ 100回</a>
+                <a href="https://www.amazon.co.jp/s?k=非常用トイレ BR-922 マイレット&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">マイレット（人気）</a>
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 凝固剤 詰め替え&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">凝固剤単品</a>
+                <a href="https://www.amazon.co.jp/s?k=ポータブルトイレ 折りたたみ 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">折りたたみポータブル便座</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="mansion">
+        <h2>4. マンション・高層階の絶対条件</h2>
+        <p>ここは命に関わる話。絶対に手を抜かないで。</p>
+
+        <h3>何が起きるか</h3>
+        <ul>
+            <li>エレベーター停止 → 階段で下まで降りられない（高齢者・子供）</li>
+            <li>排水管破損 → 流したら下階が汚水まみれ</li>
+            <li>上階で誰かが流す → 自分の部屋に逆流するケースも</li>
+            <li>避難所まで徒歩が遠い → そもそも間に合わない</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ マンション管理組合から「流すな」指示が出るケースが多い。</strong>阪神淡路・東日本・熊本・能登、全部で起きてる。簡易トイレがなければ家で生活できなくなる。
+        </div>
+
+        <h3>マンション住民の必須装備</h3>
+        <ul>
+            <li>簡易トイレ（人数×7日×5回が最低ライン）</li>
+            <li>消臭袋（BOS等） ── 臭いが防げないと精神的にキツい</li>
+            <li>45L以上のゴミ袋（溜まった使用済み袋を一時保管）</li>
+            <li>ダンボール便座（便座が使えない時用）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>マンション高層階の必須セット</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 防災 100回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">簡易トイレ100回</a>
+                <a href="https://www.amazon.co.jp/s?k=消臭袋 BOS 防災 LLサイズ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BOS消臭袋</a>
+                <a href="https://www.amazon.co.jp/s?k=ゴミ袋 45L 厚手 大量&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">45Lゴミ袋</a>
+                <a href="https://www.amazon.co.jp/s?k=ダンボール 簡易トイレ 便座&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ダンボール便座</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="house">
+        <h2>5. 戸建て・庭がある人向け</h2>
+        <p>庭があるなら話が全然違う。<strong>穴掘って埋めるのが最強</strong>。昔はみんなこれやった。</p>
+
+        <h3>やり方</h3>
+        <ol>
+            <li>庭の隅に深さ40cmくらいの穴を掘る</li>
+            <li>用を足したら土をかぶせる</li>
+            <li>穴が埋まったら隣を掘る</li>
+            <li>完全に分解されるまで半年〜1年</li>
+        </ol>
+
+        <p>スコップ1本で全部解決。断水何日続いても余裕。匂いも気にならん（土が吸う）。戸建ての強み活かしたいならコレ。</p>
+
+        <div class="warn">
+            <strong>⚠ 水道管・ガス管のある場所は避けて。</strong>また上水道の井戸がある家は離れた場所で。
+        </div>
+
+        <div class="buy-block">
+            <h4>戸建て向け</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=園芸用 スコップ ショベル&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">園芸用スコップ</a>
+                <a href="https://www.amazon.co.jp/s?k=折りたたみ スコップ アウトドア&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">折りたたみスコップ</a>
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 防災 50回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">予備の簡易トイレ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="process">
+        <h2>6. 処理の仕方（臭い対策）</h2>
+        <p>使用済み袋を溜めとく時、臭い対策しないと家が地獄になる。</p>
+
+        <ul>
+            <li><strong>BOS消臭袋（医療用レベル）</strong>は別格。5年経っても臭わない</li>
+            <li>使用済み袋 → BOS → 45Lゴミ袋 → ベランダで二重三重にする</li>
+            <li>夏場は特に要注意。直射日光避けて冷暗所に</li>
+            <li>ゴミ収集再開まで数週間かかることを想定</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>臭い対策</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=消臭袋 BOS 防災 LLサイズ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BOS LLサイズ</a>
+                <a href="https://www.amazon.co.jp/s?k=消臭袋 BOS SSサイズ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BOS SSサイズ</a>
+                <a href="https://www.amazon.co.jp/s?k=蓋付き ゴミ箱 大容量 屋外&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">蓋付きゴミ箱</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="final">
+        <h2>7. まとめ</h2>
+
+        <div class="voice">
+            <div class="voice-label">㐂のまとめ</div>
+            <p>トイレだけは今日中に買っとけ。他を揃えてトイレ忘れたら地獄や。<br>マンション民は特に。1回使ってみて試しとくとなお安心。未使用やと停電の夜に慌てる。</p>
+        </div>
+
+        <div class="buy-block">
+            <h4>まず揃える最小セット</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=簡易トイレ 防災 50回分&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①簡易トイレ50回</a>
+                <a href="https://www.amazon.co.jp/s?k=消臭袋 BOS 防災 LLサイズ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②BOS消臭袋</a>
+                <a href="https://www.amazon.co.jp/s?k=トイレットペーパー まとめ買い 96ロール&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③トイレットペーパー</a>
+            </div>
+        </div>
+    </article>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/guide/water.html" class="btn btn-outline">← 前：水の備蓄</a>
+        <a href="/guide/food.html" class="btn btn-primary">次：食の備蓄 →</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
+</footer>
+
+</body>
+</html>

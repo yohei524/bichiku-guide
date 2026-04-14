@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>食の備蓄 完全ガイド｜ゆるい備蓄</title>
+<meta name="description" content="ローリングストックが王道。何をどれだけ・アレルギー対応・調理なし食まで㐂の語り口で解説。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.guide-hero { padding: 48px 24px 32px; text-align:center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); border-bottom:1px solid var(--border); }
+.guide-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 12px; }
+.guide-hero .lead { color: var(--green); font-weight:700; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:14px; display:inline-block; padding:6px 16px; background: var(--green-pale); border-radius:999px; }
+.guide-hero p { color: var(--ink-soft); max-width: 580px; margin: 0 auto; }
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+.toc h3 { font-family: 'Noto Serif JP', serif; color: var(--green); font-size:1rem; margin-bottom:12px; }
+.toc ul { list-style:none; margin:0; }
+.toc li { padding: 4px 0; font-size:0.95rem; }
+.toc a { color: var(--ink); }
+.cat-amazon-btn { display: inline-block; background: #FFF4E0; border: 1px solid #E47911; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; color: #E47911; text-decoration: none; transition: all 0.2s; margin: 4px 6px 4px 0; }
+.cat-amazon-btn:hover { background: #E47911; color: #fff; text-decoration: none; }
+.cat-amazon-btn::before { content: '🛒 '; }
+.amazon-links { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-block { background: var(--bg-soft); border-left: 4px solid var(--gold); padding: 18px 22px; border-radius: 8px; margin: 20px 0 8px; }
+.buy-block h4 { font-family: 'Noto Serif JP', serif; color: var(--green); margin-bottom: 10px; font-size: 1rem; }
+.tip-table { width:100%; border-collapse: collapse; margin: 16px 0; background: var(--bg-card); border-radius:8px; overflow:hidden; }
+.tip-table th, .tip-table td { padding: 12px 14px; text-align:left; font-size:0.9rem; border-bottom:1px solid var(--border); }
+.tip-table th { background: var(--green-pale); color: var(--green); font-weight:700; }
+.warn { background: var(--red-pale); border-left: 4px solid var(--red); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size:0.95rem; }
+.warn strong { color: var(--red); }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", { link_url: this.href, link_text: this.textContent.trim().substring(0, 50) });
+        }
+      });
+    });
+  });
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="guide-hero">
+    <span class="lead">完全ガイド 03</span>
+    <h1>🍚 食の備蓄</h1>
+    <p>非常食を買い込むな。<strong>普段食べる物を多めに置く</strong>だけでええ。</p>
+</section>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📖 このページの目次</h3>
+        <ul>
+            <li>1. <a href="#rolling">ローリングストックが全て</a></li>
+            <li>2. <a href="#menu">1週間の備蓄メニュー例</a></li>
+            <li>3. <a href="#nocook">調理なしで食える物</a></li>
+            <li>4. <a href="#main">主食（米・パン・麺）</a></li>
+            <li>5. <a href="#protein">タンパク源（缶詰・レトルト）</a></li>
+            <li>6. <a href="#comfort">精神的ストック（甘いもの）</a></li>
+            <li>7. <a href="#allergy">アレルギー・子供・高齢者対応</a></li>
+            <li>8. <a href="#final">まとめ</a></li>
+        </ul>
+    </div>
+
+    <article class="article" id="rolling">
+        <h2>1. ローリングストックが全て</h2>
+        <p>非常食を別枠で買って押し入れに入れる → 5年後期限切れで捨てる。何回やった？</p>
+
+        <p><strong>ローリング＝普段食べる物を多めに置いて、食べた分だけ補充する。</strong>これだけ。</p>
+
+        <h3>ルール3つ</h3>
+        <ol>
+            <li>買ったら賞味期限順に並べる（古いのが手前）</li>
+            <li>食べたら補充</li>
+            <li>月1回「古いもん消費デー」</li>
+        </ol>
+
+        <div class="voice">
+            <div class="voice-label">㐂のひとこと</div>
+            <p>完璧やらんでええ。続くことが正義。押し入れの缶詰たまに見るだけで1週間食える備蓄になる。楽ちんやろ？</p>
+        </div>
+    </article>
+
+    <article class="article" id="menu">
+        <h2>2. 1週間の備蓄メニュー例</h2>
+
+        <table class="tip-table">
+            <tr><th>日</th><th>朝</th><th>昼</th><th>夜</th></tr>
+            <tr><td>1日目</td><td>パン＋缶詰</td><td>カップ麺</td><td>レトルトカレー＋パックご飯</td></tr>
+            <tr><td>2日目</td><td>シリアル＋牛乳（長期保存）</td><td>アルファ米＋ツナ缶</td><td>パスタ＋レトルトソース</td></tr>
+            <tr><td>3日目</td><td>えいようかん＋水</td><td>インスタント味噌汁＋餅</td><td>缶詰丼（サバ＋ご飯）</td></tr>
+            <tr><td>4日目</td><td>クラッカー＋ジャム</td><td>カレーメシ</td><td>うどん＋温玉（常温保存の温泉卵）</td></tr>
+            <tr><td>5日目</td><td>パン＋コーンスープ</td><td>アルファ米＋佃煮</td><td>レトルト牛丼＋ご飯</td></tr>
+            <tr><td>6日目</td><td>シリアル</td><td>カップ麺</td><td>パスタ＋ミートソース</td></tr>
+            <tr><td>7日目</td><td>えいようかん＋水</td><td>尾西のアルファ米セット</td><td>おでん缶＋うどん</td></tr>
+        </table>
+
+        <p>全部スーパーとAmazonで揃う。特殊な物は要らない。</p>
+    </article>
+
+    <article class="article" id="nocook">
+        <h2>3. 調理なしで食える物</h2>
+        <p>停電＋断水＋ガス止まりの「全部ダメ」シナリオ用。袋開けたらそのまま食える物。</p>
+
+        <ul>
+            <li>缶詰（プルトップ型） サバ・ツナ・コーン・フルーツ</li>
+            <li>クラッカー・ビスケット・乾パン</li>
+            <li>羊羹・ゼリー</li>
+            <li>ナッツ・ドライフルーツ</li>
+            <li>ソーセージ（魚肉・常温保存）</li>
+            <li>パウチの惣菜（煮豆・ひじき等）</li>
+            <li>甘酒パウチ・スポーツドリンクパウダー</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>調理なしで食える物</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=サバ缶 プルトップ まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">サバ缶</a>
+                <a href="https://www.amazon.co.jp/s?k=ツナ缶 プルトップ まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ツナ缶</a>
+                <a href="https://www.amazon.co.jp/s?k=乾パン 非常食&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">乾パン</a>
+                <a href="https://www.amazon.co.jp/s?k=井村屋 えいようかん&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">えいようかん</a>
+                <a href="https://www.amazon.co.jp/s?k=魚肉ソーセージ まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">魚肉ソーセージ</a>
+                <a href="https://www.amazon.co.jp/s?k=ミックスナッツ 素焼き 1kg&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">素焼きナッツ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="main">
+        <h2>4. 主食</h2>
+
+        <h3>米（10kg袋×2）</h3>
+        <p>無洗米なら水使わん。ただし炊飯にはお湯が必要。カセットコンロ必須。</p>
+
+        <h3>アルファ米（5年保存）</h3>
+        <p>水or湯で戻すだけ。尾西・アルファー食品が定番。白飯・五目・わかめ・チキンライス等バリエーション豊富。</p>
+
+        <h3>パックご飯</h3>
+        <p>常温で賞味期限1年。電子レンジか湯煎で温める。買い置きしやすい主力。</p>
+
+        <h3>パスタ・うどん・そうめん（乾麺）</h3>
+        <p>軽くて長期保存1年超。茹でるお湯と燃料が必要。</p>
+
+        <div class="buy-block">
+            <h4>主食</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=無洗米 10kg&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">無洗米10kg</a>
+                <a href="https://www.amazon.co.jp/s?k=アルファ米 尾西 12種セット&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">アルファ米12種</a>
+                <a href="https://www.amazon.co.jp/s?k=パックご飯 サトウのごはん 24個&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">パックご飯</a>
+                <a href="https://www.amazon.co.jp/s?k=パスタ 5kg まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">パスタ5kg</a>
+                <a href="https://www.amazon.co.jp/s?k=うどん 乾麺 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">うどん乾麺</a>
+                <a href="https://www.amazon.co.jp/s?k=カップ麺 まとめ買い 備蓄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">カップ麺箱買い</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="protein">
+        <h2>5. タンパク源</h2>
+        <p>野菜より優先。肉・魚・豆でタンパク補給しないと体力が落ちる。</p>
+
+        <div class="buy-block">
+            <h4>タンパク源</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=缶詰 詰め合わせ 防災 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">缶詰セット</a>
+                <a href="https://www.amazon.co.jp/s?k=レトルトカレー 箱買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">レトルトカレー</a>
+                <a href="https://www.amazon.co.jp/s?k=レトルト 牛丼の具 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">レトルト牛丼</a>
+                <a href="https://www.amazon.co.jp/s?k=やきとり缶 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">やきとり缶</a>
+                <a href="https://www.amazon.co.jp/s?k=煮豆 パウチ レトルト&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">煮豆パウチ</a>
+                <a href="https://www.amazon.co.jp/s?k=プロテイン ホエイ 1kg&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">プロテイン</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="comfort">
+        <h2>6. 精神的ストック（甘いもの）</h2>
+        <p>軽視されがちやけど、災害ストレス下で甘いものは薬に近い効能を発揮する。子供がいる家庭は特に。</p>
+
+        <ul>
+            <li>チョコレート（高カカオ70%以上は長持ちする）</li>
+            <li>羊羹（5年保存のえいようかん）</li>
+            <li>ドライフルーツ（レーズン・デーツ）</li>
+            <li>ビスケット・クッキー</li>
+            <li>インスタント甘酒・ホットドリンク</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>精神安定ストック</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=井村屋 えいようかん&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">えいようかん</a>
+                <a href="https://www.amazon.co.jp/s?k=明治 チョコレート 板チョコ まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">板チョコ箱買い</a>
+                <a href="https://www.amazon.co.jp/s?k=デーツ ドライフルーツ 1kg&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">デーツ</a>
+                <a href="https://www.amazon.co.jp/s?k=非常食 クッキー 長期保存&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">長期保存クッキー</a>
+                <a href="https://www.amazon.co.jp/s?k=インスタント 味噌汁 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">インスタント味噌汁</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="allergy">
+        <h2>7. アレルギー・子供・高齢者</h2>
+
+        <h3>食物アレルギー対応</h3>
+        <p>普通の非常食セットは小麦・卵・乳が入ってる物が多い。<strong>アレルギー対応の非常食</strong>を必ず別で用意。</p>
+
+        <h3>乳幼児</h3>
+        <p>液体ミルク（開封即飲める）・ベビーフードの長期保存版。粉ミルクは水必須＋衛生管理大変。</p>
+
+        <h3>高齢者</h3>
+        <p>噛む力・飲み込む力が落ちてる。<strong>やわらか食・介護食</strong>のレトルトを。普通の非常食は硬くて食べられない可能性あり。</p>
+
+        <div class="buy-block">
+            <h4>特別対応</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=アレルギー対応 非常食 アルファ米&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">アレルギー対応非常食</a>
+                <a href="https://www.amazon.co.jp/s?k=液体ミルク 備蓄&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">液体ミルク</a>
+                <a href="https://www.amazon.co.jp/s?k=ベビーフード 長期保存&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">ベビーフード</a>
+                <a href="https://www.amazon.co.jp/s?k=介護食 やわらか レトルト&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">介護食</a>
+                <a href="https://www.amazon.co.jp/s?k=エンシュア 栄養補助 飲料&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">栄養補助飲料</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="final">
+        <h2>8. まとめ</h2>
+
+        <div class="voice">
+            <div class="voice-label">㐂のまとめ</div>
+            <p>非常食を買い込もうとするな。普段の料理でちょっと多めに買うだけ。缶詰6個・レトルト10食・パスタ2kg・カップ麺10個。これでベース完成。<br>あとは毎月のスーパーで1〜2点買い足していくだけ。続かん備蓄は意味ない。</p>
+        </div>
+
+        <div class="buy-block">
+            <h4>入門セット（1週間分）</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=アルファ米 尾西 12種セット&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①アルファ米12種</a>
+                <a href="https://www.amazon.co.jp/s?k=缶詰 詰め合わせ 防災 まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②缶詰セット</a>
+                <a href="https://www.amazon.co.jp/s?k=レトルトカレー 箱買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③レトルトカレー</a>
+                <a href="https://www.amazon.co.jp/s?k=井村屋 えいようかん&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">④えいようかん</a>
+            </div>
+        </div>
+    </article>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/guide/toilet.html" class="btn btn-outline">← 前：トイレの備蓄</a>
+        <a href="/guide/energy.html" class="btn btn-primary">次：電気・燃料 →</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
+</footer>
+
+</body>
+</html>

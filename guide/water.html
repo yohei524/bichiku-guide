@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水の備蓄 完全ガイド｜ゆるい備蓄</title>
+<meta name="description" content="1人1日3L×7日。選び方・保管・汲み置き・浄水。水の備蓄の全てを㐂の語り口で解説。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.guide-hero { padding: 48px 24px 32px; text-align:center; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%); border-bottom:1px solid var(--border); }
+.guide-hero h1 { font-family: 'Noto Serif JP', serif; font-size: clamp(1.8rem, 5vw, 2.4rem); margin-bottom: 12px; }
+.guide-hero .lead { color: var(--green); font-weight:700; letter-spacing:0.1em; font-size:0.85rem; margin-bottom:14px; display:inline-block; padding:6px 16px; background: var(--green-pale); border-radius:999px; }
+.guide-hero p { color: var(--ink-soft); max-width: 580px; margin: 0 auto; }
+.toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 32px; }
+.toc h3 { font-family: 'Noto Serif JP', serif; color: var(--green); font-size:1rem; margin-bottom:12px; }
+.toc ul { list-style:none; margin:0; }
+.toc li { padding: 4px 0; font-size:0.95rem; }
+.toc a { color: var(--ink); }
+.toc a:hover { color: var(--green); }
+.cat-amazon-btn { display: inline-block; background: #FFF4E0; border: 1px solid #E47911; border-radius: 8px; padding: 10px 20px; font-size: 14px; font-weight: 700; color: #E47911; text-decoration: none; transition: all 0.2s; margin: 4px 6px 4px 0; }
+.cat-amazon-btn:hover { background: #E47911; color: #fff; text-decoration: none; }
+.cat-amazon-btn::before { content: '🛒 '; }
+.amazon-links { margin: 16px 0 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.buy-block { background: var(--bg-soft); border-left: 4px solid var(--gold); padding: 18px 22px; border-radius: 8px; margin: 20px 0 8px; }
+.buy-block h4 { font-family: 'Noto Serif JP', serif; color: var(--green); margin-bottom: 10px; font-size: 1rem; }
+.tip-table { width:100%; border-collapse: collapse; margin: 16px 0; background: var(--bg-card); border-radius:8px; overflow:hidden; }
+.tip-table th, .tip-table td { padding: 12px 14px; text-align:left; font-size:0.9rem; border-bottom:1px solid var(--border); }
+.tip-table th { background: var(--green-pale); color: var(--green); font-weight:700; }
+.warn { background: var(--red-pale); border-left: 4px solid var(--red); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size:0.95rem; }
+.warn strong { color: var(--red); }
+</style>
+<!-- ===== Google Analytics 4 ===== -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", { link_url: this.href, link_text: this.textContent.trim().substring(0, 50) });
+        }
+      });
+    });
+  });
+</script>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo"><span class="mark">❖</span>ゆるい備蓄</a>
+        <ul class="nav-links">
+            <li><a href="/">トップ</a></li>
+            <li><a href="/check.html">診断</a></li>
+            <li><a href="/category.html">カテゴリで選ぶ</a></li>
+            <li><a href="/situation.html">状況で備える</a></li>
+            <li><a href="/blog.html">読みもの</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="guide-hero">
+    <span class="lead">完全ガイド 01</span>
+    <h1>💧 水の備蓄</h1>
+    <p>人は水なしで3日で死にます。食より先。全ての備蓄の土台が水。</p>
+</section>
+
+<div class="container">
+
+    <div class="toc">
+        <h3>📖 このページの目次</h3>
+        <ul>
+            <li>1. <a href="#how-much">何リットルいるか（人数・日数で計算）</a></li>
+            <li>2. <a href="#kinds">ペットボトル vs 保存水 vs 汲み置き</a></li>
+            <li>3. <a href="#save">保管のコツ（賞味期限・置き場所）</a></li>
+            <li>4. <a href="#pour">お風呂の汲み置き</a></li>
+            <li>5. <a href="#purify">浄水器・携帯浄水器</a></li>
+            <li>6. <a href="#carry">運搬用の給水タンク</a></li>
+            <li>7. <a href="#final">まとめ：最低これだけ買っとけ</a></li>
+        </ul>
+    </div>
+
+    <article class="article" id="how-much">
+        <h2>1. 何リットルいるか</h2>
+        <p>人間は<strong>1日3L</strong>飲み水・調理で使います。これは夏場や発熱時やと4〜5Lに増える。</p>
+
+        <table class="tip-table">
+            <tr><th>家族構成</th><th>3日分</th><th>7日分</th><th>2L×本数</th></tr>
+            <tr><td>1人</td><td>9L</td><td>21L</td><td>2L×11本</td></tr>
+            <tr><td>夫婦</td><td>18L</td><td>42L</td><td>2L×21本</td></tr>
+            <tr><td>4人家族</td><td>36L</td><td>84L</td><td>2L×42本</td></tr>
+            <tr><td>6人家族</td><td>54L</td><td>126L</td><td>2L×63本</td></tr>
+        </table>
+
+        <div class="warn">
+            <strong>⚠ トイレ・手洗い用は別計算。</strong>これに加えてお風呂1杯（200L）溜めておけるなら、生活用水はかなり余裕が出ます。
+        </div>
+    </article>
+
+    <article class="article" id="kinds">
+        <h2>2. どの水を買うべきか</h2>
+
+        <h3>ペットボトル天然水（2L×6本）</h3>
+        <p>一番安い。賞味期限2年。家族で飲む用の主力。サントリー天然水・いろはす・クリスタルガイザー あたりが安定。<strong>amazon定期便で2ヶ月ごとに届く設定</strong>にしといたら勝手にローリングできる。</p>
+
+        <h3>保存水（5年・7年保存）</h3>
+        <p>2Lで1本300〜500円と割高やけど、<strong>押し入れに投げ込んで5年忘れられる</strong>のが最強。管理苦手な人はこっち。</p>
+
+        <h3>ウォーターサーバー</h3>
+        <p>普段使いしてるなら、停電時の備蓄にもなる（電気切っても自然落下で出る機種あり）。ただ断水時は配達来ない前提。</p>
+
+        <div class="buy-block">
+            <h4>水の備蓄 おすすめ</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=サントリー天然水+2L+12本&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">サントリー天然水 2L×12</a>
+                <a href="https://www.amazon.co.jp/s?k=いろはす+2L+まとめ買い&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">いろはす 2L</a>
+                <a href="https://www.amazon.co.jp/s?k=クリスタルガイザー+500ml+48本&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">クリスタルガイザー 500ml</a>
+                <a href="https://www.amazon.co.jp/s?k=保存水+5年 2L&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">5年保存水</a>
+                <a href="https://www.amazon.co.jp/s?k=保存水 7年 2L&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">7年保存水</a>
+                <a href="https://www.amazon.co.jp/s?k=防災 500ml 水 長期保存&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">長期保存水500ml</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="save">
+        <h2>3. 保管のコツ</h2>
+        <ul>
+            <li><strong>賞味期限を油性ペンでデカく書く</strong>（箱に書くとラクで確実）</li>
+            <li><strong>直射日光を避ける</strong>（ベランダNG。押し入れ・物置の奥）</li>
+            <li><strong>温度変化が少ない場所</strong>（玄関横・階段下・納戸）</li>
+            <li><strong>灯油・洗剤と一緒にしない</strong>（ペットボトルは匂いを吸う）</li>
+            <li><strong>分散して保管</strong>（家が潰れても一部は取り出せる）</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ 賞味期限切れても飲めるけど</strong>、ペットボトルが徐々に収縮して表示量より少なくなってる。目安として賞味期限切れから1年以内で使い切る。
+        </div>
+    </article>
+
+    <article class="article" id="pour">
+        <h2>4. お風呂の汲み置き</h2>
+        <p>これ、コストゼロで生活用水が200L確保できる最強の手。地震の揺れ始めてからでは遅い。<strong>普段から「浴槽の水は翌日のお風呂入る直前まで抜かない」習慣</strong>にする。</p>
+
+        <ul>
+            <li>トイレを流すのに使える</li>
+            <li>手洗い・体拭きに使える</li>
+            <li>消火用にもなる</li>
+            <li>飲料には向かない（浴槽の汚れが混ざる）</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>汲み置き・浴槽対策</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=浴槽 蓋 追い焚き&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">浴槽の蓋（衛生保持）</a>
+                <a href="https://www.amazon.co.jp/s?k=風呂 ポンプ 手動 くみ置き&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">風呂水ポンプ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="purify">
+        <h2>5. 浄水器・携帯浄水器</h2>
+        <p>備蓄水が尽きた時の<strong>最後の保険</strong>。川の水・雨水・給水車の水をそのまま飲める状態にする。</p>
+
+        <h3>選び方</h3>
+        <ul>
+            <li><strong>LifeStraw</strong>（ライフストロー）：ストロー型で4000L濾過。有名メーカーで信頼性高い</li>
+            <li><strong>SAWYER MINI</strong>：ボトル装着タイプ。アウトドア勢定番</li>
+            <li><strong>BRITAポット</strong>：普段使い兼用。浄水カートリッジ多めに買っとく</li>
+        </ul>
+
+        <div class="warn">
+            <strong>⚠ 海水は飲めません。</strong>浄水器で塩分は除去できない。海沿いの人は特に淡水確保の計画を。
+        </div>
+
+        <div class="buy-block">
+            <h4>浄水グッズ</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=LifeStraw ライフストロー 携帯浄水器&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">LifeStraw</a>
+                <a href="https://www.amazon.co.jp/s?k=SAWYER MINI 浄水器&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">SAWYER MINI</a>
+                <a href="https://www.amazon.co.jp/s?k=BRITA ポット 浄水&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BRITA浄水ポット</a>
+                <a href="https://www.amazon.co.jp/s?k=浄水 カートリッジ 交換 BRITA&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">BRITA交換カートリッジ</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="carry">
+        <h2>6. 給水タンクと運搬</h2>
+        <p>断水時は<strong>給水車が来る</strong>けど、ポリタンクがないと10Lしか運べん。マンション上階の人は致命的。</p>
+
+        <ul>
+            <li><strong>10〜20Lの折りたたみタンク</strong>が場所取らず便利</li>
+            <li>リュック式（背負って運ぶ）もある。エレベーター停止時に強い</li>
+            <li>キャリーカート＋20Lタンクの組み合わせが現実的</li>
+        </ul>
+
+        <div class="buy-block">
+            <h4>運搬グッズ</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=ウォータータンク 20L 折りたたみ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">折りたたみ20Lタンク</a>
+                <a href="https://www.amazon.co.jp/s?k=ウォータータンク 10L&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">10Lタンク</a>
+                <a href="https://www.amazon.co.jp/s?k=給水バッグ 背負える リュック&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">背負える給水バッグ</a>
+                <a href="https://www.amazon.co.jp/s?k=キャリーカート 防災&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">キャリーカート</a>
+            </div>
+        </div>
+    </article>
+
+    <article class="article" id="final">
+        <h2>7. まとめ：最低これだけ買っとけ</h2>
+
+        <div class="voice">
+            <div class="voice-label">㐂のまとめ</div>
+            <p>迷ったら①2Lペットボトル×人数×7本 ②20L給水タンク1個 ③LifeStraw1本、この3つ。全部で1万円もせん。これで1週間生き延びられる。<br>やらん理由を探してる時間が一番もったいない。ポチっとけ。</p>
+        </div>
+
+        <div class="buy-block">
+            <h4>入門の3点セット</h4>
+            <div class="amazon-links">
+                <a href="https://www.amazon.co.jp/s?k=サントリー天然水+2L+12本&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">①天然水2L×12本</a>
+                <a href="https://www.amazon.co.jp/s?k=ウォータータンク 20L 折りたたみ&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">②20L給水タンク</a>
+                <a href="https://www.amazon.co.jp/s?k=LifeStraw ライフストロー 携帯浄水器&tag=dannasanba-22" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">③LifeStraw</a>
+            </div>
+        </div>
+    </article>
+
+    <div style="text-align:center; margin-top:40px;">
+        <a href="/category.html" class="btn btn-outline">← カテゴリ一覧に戻る</a>
+        <a href="/guide/toilet.html" class="btn btn-primary">次：トイレの備蓄 →</a>
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>
+        <a href="/">トップ</a>
+        <a href="/check.html">診断</a>
+        <a href="/category.html">カテゴリ</a>
+        <a href="/situation.html">状況</a>
+        <a href="/blog.html">読みもの</a>
+    </p>
+    <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
+</footer>
+
+</body>
+</html>
