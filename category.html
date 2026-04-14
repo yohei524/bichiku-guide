@@ -38,6 +38,35 @@
     gap: 8px;
 }
 </style>
+<!-- ===== Google Analytics 4 =====
+     ※ 測定ID (G-XXXXXXXXXX) を取得したら下の2箇所を置き換える -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll("a[href*=amazon.co.jp]").forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "amazon_click", {
+            link_url: this.href,
+            link_text: this.textContent.trim().substring(0, 50)
+          });
+        }
+      });
+    });
+  });
+</script>
+
+<!-- ===== Vercel Analytics ===== -->
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 <body>
 
