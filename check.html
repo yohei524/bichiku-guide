@@ -136,6 +136,14 @@
         <div class="quiz-result" id="result">
             <h3>診断結果</h3>
             <div id="result-body"></div>
+
+            <!-- 占い要素（オマケ） -->
+            <div id="unsei-box" style="margin-top:28px; padding:24px 22px; background: linear-gradient(135deg, #FAF3E0 0%, #F8F4EC 100%); border:1.5px solid var(--gold); border-radius:12px;">
+                <div style="font-family:'Noto Serif JP',serif; font-size:0.95rem; font-weight:700; color: var(--green); letter-spacing:0.1em; margin-bottom:8px;">◇ 占い師からひとこと（オマケ）</div>
+                <p style="font-size:0.95rem; line-height:1.85; color: var(--ink); margin:0;" id="unsei-text"></p>
+                <p style="font-size:0.78rem; color: var(--ink-muted); margin-top:12px; margin-bottom:0;">※ 気休め程度に。でも備えた方がええのは占い関係なく事実や。</p>
+            </div>
+
             <div style="margin-top:24px; text-align:center;">
                 <a href="/category.html" class="btn btn-outline">カテゴリごとの詳細 →</a>
             </div>
@@ -226,19 +234,19 @@ function showResult() {
         tips.push({urgent: false, body: `<strong>冷暖房対策</strong>：夏は保冷剤・冷感タオル 冬は使い捨てカイロ・寝袋。電気に頼らん解。`, buys: [A('使い捨てカイロ 30個 まとめ買い','使い捨てカイロ'), A('寝袋 防災 冬用','寝袋'), A('冷感タオル 防災','冷感タオル'), A('保冷剤 大型','保冷剤')]});
     }
 
-    // Q5 金融
-    if (answers.q5 === 'jpy') {
-        tips.push({urgent: true, body: `<strong>⚠ 金融の備蓄がゼロ</strong>：円だけ持ってても購買力は10年で3割減。ゴールド・ドル建て資産で分散を。`, buys: [A('金貨 純金 コイン 投資','純金コイン'), A('銀貨 シルバーコイン メープルリーフ','銀貨'), A('お金の大学','お金の大学')]});
-    } else if (answers.q5 === 'some') {
-        tips.push({urgent: false, body: `<strong>金融備蓄あり</strong>：あと一歩。全資産の10〜15%を非円資産に乗せるのが目安。`, buys: [A('金貨 純金 コイン 投資','純金コイン追加購入'), A('ジム・ロジャーズ ゴールド','投資入門本')]});
-    } else if (answers.q5 === 'spread') {
-        tips.push({urgent: false, body: `<strong>金融の備え◎</strong>：定期的な見直しだけ忘れずに。`, buys: [A('家庭用金庫 耐火','家庭用金庫'), A('ウォーレン・バフェット 投資','投資思考本')]});
+    // Q5 簡易トイレ
+    if (answers.q5 === 'none') {
+        tips.push({urgent: true, body: `<strong>⚠ トイレ備蓄ゼロは危険</strong>：断水したら3時間で詰む。水洗トイレ流れん・マンションは下階に汚水があふれるリスクも。1人7日×5回で35回。家族分×人数を今日中に。`, buys: [A('簡易トイレ 防災 50回分','簡易トイレ50回'), A('簡易トイレ 防災 100回分','簡易トイレ100回'), A('トイレットペーパー まとめ買い 96ロール','トイレットペーパー96ロール'), A('消臭袋 BOS 防災','消臭袋')]});
+    } else if (answers.q5 === 'few') {
+        tips.push({urgent: false, body: `<strong>足りひん</strong>：1〜2日分やと断水3日目から詰む。1人7日分（35回）まで増やす。コンパクトやから場所取らん。`, buys: [A('簡易トイレ 防災 50回分','簡易トイレ追加'), A('消臭袋 BOS 防災','消臭袋'), A('携帯トイレ ポータブル','携帯トイレ')]});
+    } else if (answers.q5 === 'week') {
+        tips.push({urgent: false, body: `<strong>◎ 十分</strong>：長期化シナリオに備えるなら凝固剤だけ追加買い。本体より凝固剤切れが先に来る。`, buys: [A('簡易トイレ 凝固剤 詰め替え','凝固剤単品'), A('消臭袋 BOS 防災','BOS消臭袋')]});
     } else {
-        tips.push({urgent: false, body: `<strong>まず生活防衛資金</strong>：生活費3ヶ月分の現金から。金融備蓄はそのあと。`, buys: [A('お金の大学','お金の大学'), A('節約 ミニマリスト 本','節約入門本')]});
+        tips.push({urgent: false, body: `<strong>戸建ての強み</strong>：庭に穴掘って埋めるのが最強のトイレ解や（昔はみんなこれ）。スコップ1本は必ず常備。`, buys: [A('園芸用 スコップ ショベル','園芸スコップ'), A('折りたたみ スコップ アウトドア','折りたたみスコップ')]});
     }
 
     // 共通
-    tips.push({urgent: false, body: `<strong>全員に共通</strong>：現金は小額紙幣（千円札・五千円札）で最低5万円を家に。停電時はATMもカードも使えない。`, buys: [A('家庭用金庫 耐火','家庭用金庫'), A('防水 防災 ポーチ 貴重品','防水ポーチ')]});
+    tips.push({urgent: false, body: `<strong>全員に共通</strong>：現金5万円（千円札・五千円札で）を家に。停電時はATMもカードも使えない。`, buys: [A('家庭用金庫 耐火','家庭用金庫'), A('防水 防災 ポーチ 貴重品','防水ポーチ')]});
 
     const body = tips.map(t => {
         const cls = t.urgent ? 'result-tip urgent' : 'result-tip';
@@ -246,6 +254,48 @@ function showResult() {
         return `<div class="${cls}"><div class="result-tip-body">${t.body}</div>${buyRow}</div>`;
     }).join('');
     document.getElementById('result-body').innerHTML = body;
+
+    // 🔮 占いオマケ（今日の日干支を簡易計算）
+    const today = new Date();
+    const baseDate = new Date(2024, 0, 1); // 2024/1/1 = 甲子
+    const diffDays = Math.floor((today - baseDate) / (1000*60*60*24));
+    const kanshiIndex = ((diffDays % 60) + 60) % 60;
+    const kan = ['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'][kanshiIndex % 10];
+    const shi = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'][kanshiIndex % 12];
+
+    // 日干から五行と気配
+    const gogyo = {'甲':'木','乙':'木','丙':'火','丁':'火','戊':'土','己':'土','庚':'金','辛':'金','壬':'水','癸':'水'}[kan];
+
+    // 診断回答から「備え度」スコア
+    let score = 0;
+    if (answers.q3 === '0') score -= 2;
+    else if (answers.q3 === '3') score += 0;
+    else if (answers.q3 === '7') score += 1;
+    else score += 2;
+    if (answers.q5 === 'jpy' || answers.q5 === 'none') score -= 1;
+    if (answers.q5 === 'spread') score += 1;
+
+    // 運気メッセージ（五行×備え度）
+    const unseiMap = {
+      '木': 'ぐんぐん伸びる気の日や。新しいものを揃えるのに向いてる。種まきの気。',
+      '火': '火気強め。情熱で動ける日。面倒な備蓄作業も今日やったら一気に片付く。',
+      '土': '地に足ついた日。収納・整理整頓・賞味期限チェックが捗る。築くの気。',
+      '金': '決断と削ぎ落としの日。不要なもん捨てて、本当に必要なもんだけ揃える目利きが冴える。',
+      '水': '流れる気の日。情報収集・学びが入ってきやすい。このサイト読むのも実はええタイミングや。'
+    };
+
+    const unseiShort = {
+      '木': '動け。揃えるのに向いてる日。',
+      '火': '勢いで一気に片付く日。',
+      '土': '整理整頓・賞味期限チェックが冴える日。',
+      '金': '要るもん・要らんもん見極める目が冴える日。',
+      '水': '学び吸収しやすい日。読んで正解。'
+    };
+
+    const unseiMsg = `<strong>今日は ${kan}${shi}（${gogyo}性）の日。</strong> ${unseiShort[gogyo]} <em style="color: var(--ink-muted);">知らんけど。</em>`;
+
+    document.getElementById('unsei-text').innerHTML = unseiMsg;
+
     document.getElementById('result').classList.add('show');
     document.getElementById('result').scrollIntoView({behavior:'smooth'});
 }
