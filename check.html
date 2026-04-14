@@ -9,6 +9,52 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<style>
+.cat-amazon-btn {
+    display: inline-block;
+    background: #FFF4E0;
+    border: 1px solid #E47911;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #E47911;
+    text-decoration: none;
+    transition: all 0.2s;
+    margin: 4px 4px 4px 0;
+}
+.cat-amazon-btn:hover {
+    background: #E47911;
+    color: #fff;
+    text-decoration: none;
+}
+.cat-amazon-btn::before {
+    content: '🛒 ';
+    font-size: 11px;
+}
+.result-tip {
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+}
+.result-tip.urgent {
+    background: var(--red-pale);
+    border-color: var(--red);
+}
+.result-tip-body {
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 14px;
+}
+.result-tip .buy-row {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+</style>
 </head>
 <body>
 
@@ -113,9 +159,13 @@
         <a href="/blog.html">読みもの</a>
     </p>
     <p style="margin-top:16px;">© ゆるい備蓄 by ほっそいおっさん</p>
+    <p class="disclaimer">※ Amazonリンクはアフィリエイトを含みます（dannasanba-22）</p>
 </footer>
 
 <script>
+const TAG = 'dannasanba-22';
+const A = (kw, label) => `<a href="https://www.amazon.co.jp/s?k=${encodeURIComponent(kw)}&tag=${TAG}" target="_blank" rel="nofollow noopener" class="cat-amazon-btn">${label}</a>`;
+
 document.querySelectorAll('.quiz-option').forEach(opt => {
     opt.addEventListener('click', () => {
         const q = opt.closest('.quiz-q');
@@ -135,37 +185,66 @@ function showResult() {
     const tips = [];
 
     // Q1 住居
-    if (answers.q1 === 'city') tips.push('<strong>都市マンション</strong>：水の備蓄が最優先。エレベーター停止で上層階は水が運べなくなる。ペットボトル2L×14本を最低ライン');
-    else if (answers.q1 === 'suburb') tips.push('<strong>郊外戸建て</strong>：カセットコンロ＋ボンベが効く。ガレージや物置に燃料を分散保管できる強み');
-    else tips.push('<strong>田舎</strong>：水と食はある程度自給できるが 情報系（ラジオ・衛星電話）が弱点になりがち');
+    if (answers.q1 === 'city') {
+        tips.push({urgent: false, body: `<strong>都市マンション</strong>：水の備蓄が最優先。エレベーター停止で上層階は水が運べなくなる。ペットボトル2L×14本を最低ライン。`, buys: [A('飲料水 2L 24本 備蓄','飲料水2L×24本'), A('ウォータータンク 20L 折りたたみ','給水タンク')]});
+    } else if (answers.q1 === 'suburb') {
+        tips.push({urgent: false, body: `<strong>郊外戸建て</strong>：カセットコンロ＋ボンベが効く。ガレージや物置に燃料を分散保管できる強み。`, buys: [A('カセットコンロ ガスボンベ まとめ買い 30本','カセットコンロ＋ボンベ'), A('ポータブル電源 1000Wh Jackery EcoFlow','ポータブル電源')]});
+    } else {
+        tips.push({urgent: false, body: `<strong>田舎</strong>：水と食はある程度自給できるが 情報系（ラジオ・衛星電話）が弱点になりがち。`, buys: [A('手回し ソーラー ラジオ 防災','手回しラジオ'), A('携帯浄水器 LifeStraw','携帯浄水器')]});
+    }
 
     // Q2 家族
-    if (answers.q2 === 'kids') tips.push('<strong>子供の備え</strong>：ミルク・おむつ・離乳食・お気に入りのお菓子。精神的安定のためのおもちゃも忘れずに');
-    else if (answers.q2 === 'senior') tips.push('<strong>高齢の家族</strong>：常備薬は1ヶ月分 お薬手帳のコピー デイサービス停止時の対応');
-    else if (answers.q2 === 'couple') tips.push('<strong>夫婦</strong>：2人分の1週間備蓄。水42L 食料14食分が目安');
-    else tips.push('<strong>一人暮らし</strong>：ミニマル備蓄でOK 水21L 食料7食分から');
+    if (answers.q2 === 'kids') {
+        tips.push({urgent: false, body: `<strong>子供の備え</strong>：ミルク・おむつ・離乳食・お気に入りのお菓子。精神的安定のためのおもちゃも忘れずに。`, buys: [A('液体ミルク 液体哺乳 備蓄','液体ミルク'), A('おむつ まとめ買い','おむつ'), A('ベビーフード 非常食 長期保存','ベビーフード')]});
+    } else if (answers.q2 === 'senior') {
+        tips.push({urgent: false, body: `<strong>高齢の家族</strong>：常備薬は1ヶ月分 お薬手帳のコピー デイサービス停止時の対応。`, buys: [A('お薬手帳','お薬手帳'), A('介護用品 防災','介護用品'), A('大人用おむつ','大人用おむつ')]});
+    } else if (answers.q2 === 'couple') {
+        tips.push({urgent: false, body: `<strong>夫婦</strong>：2人分の1週間備蓄。水42L 食料14食分が目安。`, buys: [A('防災リュック 2人用','2人用防災リュック'), A('アルファ米 尾西 白飯 まとめ買い','アルファ米')]});
+    } else {
+        tips.push({urgent: false, body: `<strong>一人暮らし</strong>：ミニマル備蓄でOK 水21L 食料7食分から。`, buys: [A('防災リュック 15点','防災リュックセット'), A('1人用防災セット','1人用防災セット')]});
+    }
 
     // Q3 現在量
-    if (answers.q3 === '0') tips.push('<strong>⚠ まず最優先</strong>：今日 水を2L×6本 買ってきて。話はそこから。');
-    else if (answers.q3 === '3') tips.push('<strong>ベース達成 あと一歩</strong>：3日→7日に増やすだけで安心感が段違いに上がる');
-    else if (answers.q3 === '7') tips.push('<strong>いい感じ</strong>：次は薬・燃料・情報系に横展開');
-    else tips.push('<strong>上級者</strong>：量より質のフェーズ。ローリング（賞味期限回し）ができてるか点検');
+    if (answers.q3 === '0') {
+        tips.push({urgent: true, body: `<strong>⚠ まず最優先</strong>：今日 水を2L×6本 買ってきて。話はそこから。`, buys: [A('飲料水 2L 24本 備蓄','飲料水2L×24本'), A('保存水 5年 2L','5年保存水'), A('アルファ米 尾西 白飯 まとめ買い','アルファ米')]});
+    } else if (answers.q3 === '3') {
+        tips.push({urgent: false, body: `<strong>ベース達成 あと一歩</strong>：3日→7日に増やすだけで安心感が段違いに上がる。`, buys: [A('缶詰 詰め合わせ 防災 まとめ買い','缶詰セット'), A('レトルトカレー 箱買い','レトルトカレー'), A('インスタントラーメン まとめ買い 備蓄','カップ麺')]});
+    } else if (answers.q3 === '7') {
+        tips.push({urgent: false, body: `<strong>いい感じ</strong>：次は薬・燃料・情報系に横展開。`, buys: [A('救急セット 包帯 ガーゼ 防災','救急セット'), A('カセットコンロ ガスボンベ まとめ買い 30本','カセットコンロ＋ボンベ'), A('手回し ソーラー ラジオ 防災','手回しラジオ')]});
+    } else {
+        tips.push({urgent: false, body: `<strong>上級者</strong>：量より質のフェーズ。ローリング（賞味期限回し）ができてるか点検。`, buys: [A('ポータブル電源 1000Wh Jackery EcoFlow','ポータブル電源'), A('ソーラーパネル 折りたたみ 100W Jackery','ソーラーパネル')]});
+    }
 
     // Q4 停電
-    if (answers.q4 === 'light') tips.push('<strong>明かり対策</strong>：LEDランタン2つ 手回しラジオ ヘッドライト。ロウソクは火事リスクで推奨せず');
-    else if (answers.q4 === 'cook') tips.push('<strong>調理対策</strong>：カセットコンロ＋ボンベ6本で1週間炊ける');
-    else if (answers.q4 === 'phone') tips.push('<strong>通信対策</strong>：大容量モバイルバッテリー＋ソーラーパネル。最低20,000mAh×2');
-    else tips.push('<strong>冷暖房対策</strong>：夏は保冷剤・冷感タオル 冬は使い捨てカイロ・寝袋。電気に頼らん解');
+    if (answers.q4 === 'light') {
+        tips.push({urgent: false, body: `<strong>明かり対策</strong>：LEDランタン2つ 手回しラジオ ヘッドライト。ロウソクは火事リスクで推奨せず。`, buys: [A('LEDランタン 防災','LEDランタン'), A('ヘッドライト 防災','ヘッドライト'), A('LED懐中電灯 1000ルーメン 防災 護身','強力LEDライト')]});
+    } else if (answers.q4 === 'cook') {
+        tips.push({urgent: false, body: `<strong>調理対策</strong>：カセットコンロ＋ボンベ6本で1週間炊ける。`, buys: [A('カセットコンロ ガスボンベ まとめ買い 30本','カセットコンロ＋ボンベ'), A('メスティン アルミ 飯盒','メスティン')]});
+    } else if (answers.q4 === 'phone') {
+        tips.push({urgent: false, body: `<strong>通信対策</strong>：大容量モバイルバッテリー＋ソーラーパネル。最低20,000mAh×2。`, buys: [A('モバイルバッテリー 20000mAh Anker','Ankerバッテリー'), A('ソーラーパネル 折りたたみ 100W Jackery','ソーラーパネル'), A('ポータブル電源 1000Wh Jackery EcoFlow','ポータブル電源')]});
+    } else {
+        tips.push({urgent: false, body: `<strong>冷暖房対策</strong>：夏は保冷剤・冷感タオル 冬は使い捨てカイロ・寝袋。電気に頼らん解。`, buys: [A('使い捨てカイロ 30個 まとめ買い','使い捨てカイロ'), A('寝袋 防災 冬用','寝袋'), A('冷感タオル 防災','冷感タオル'), A('保冷剤 大型','保冷剤')]});
+    }
 
     // Q5 金融
-    if (answers.q5 === 'jpy') tips.push('<strong>⚠ 金融の備蓄がゼロ</strong>：円だけ持ってても購買力は10年で3割減。ゴールド・ドル建て資産で分散を');
-    else if (answers.q5 === 'some') tips.push('<strong>金融備蓄あり</strong>：あと一歩。全資産の10〜15%を非円資産に乗せるのが目安');
-    else if (answers.q5 === 'spread') tips.push('<strong>金融の備え◎</strong>：定期的な見直しだけ忘れずに');
-    else tips.push('<strong>まず生活防衛資金</strong>：生活費3ヶ月分の現金から。金融備蓄はそのあと');
+    if (answers.q5 === 'jpy') {
+        tips.push({urgent: true, body: `<strong>⚠ 金融の備蓄がゼロ</strong>：円だけ持ってても購買力は10年で3割減。ゴールド・ドル建て資産で分散を。`, buys: [A('金貨 純金 コイン 投資','純金コイン'), A('銀貨 シルバーコイン メープルリーフ','銀貨'), A('お金の大学','お金の大学')]});
+    } else if (answers.q5 === 'some') {
+        tips.push({urgent: false, body: `<strong>金融備蓄あり</strong>：あと一歩。全資産の10〜15%を非円資産に乗せるのが目安。`, buys: [A('金貨 純金 コイン 投資','純金コイン追加購入'), A('ジム・ロジャーズ ゴールド','投資入門本')]});
+    } else if (answers.q5 === 'spread') {
+        tips.push({urgent: false, body: `<strong>金融の備え◎</strong>：定期的な見直しだけ忘れずに。`, buys: [A('家庭用金庫 耐火','家庭用金庫'), A('ウォーレン・バフェット 投資','投資思考本')]});
+    } else {
+        tips.push({urgent: false, body: `<strong>まず生活防衛資金</strong>：生活費3ヶ月分の現金から。金融備蓄はそのあと。`, buys: [A('お金の大学','お金の大学'), A('節約 ミニマリスト 本','節約入門本')]});
+    }
 
-    tips.push('<strong>全員に共通</strong>：現金は小額紙幣（千円札・五千円札）で最低5万円を家に。停電時はATMもカードも使えない');
+    // 共通
+    tips.push({urgent: false, body: `<strong>全員に共通</strong>：現金は小額紙幣（千円札・五千円札）で最低5万円を家に。停電時はATMもカードも使えない。`, buys: [A('家庭用金庫 耐火','家庭用金庫'), A('防水 防災 ポーチ 貴重品','防水ポーチ')]});
 
-    const body = '<ul>' + tips.map(t => '<li>' + t + '</li>').join('') + '</ul>';
+    const body = tips.map(t => {
+        const cls = t.urgent ? 'result-tip urgent' : 'result-tip';
+        const buyRow = t.buys && t.buys.length ? `<div class="buy-row">${t.buys.join('')}</div>` : '';
+        return `<div class="${cls}"><div class="result-tip-body">${t.body}</div>${buyRow}</div>`;
+    }).join('');
     document.getElementById('result-body').innerHTML = body;
     document.getElementById('result').classList.add('show');
     document.getElementById('result').scrollIntoView({behavior:'smooth'});
